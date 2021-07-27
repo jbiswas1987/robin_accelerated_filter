@@ -1,0 +1,14 @@
+<mat-toolbar class="header">
+  <span class="colorWithSize brandAndLogoutAlign">
+    <img [src]="logo" class="image-width"/>
+  </span>
+  <section class="sponsor-spacer">
+    <span class="colorWithSize">Sponsor : </span>
+    <label class="siteSponsor">{{ _qryStrSponsor }}</label>
+  </section>
+  <span class="example-spacer"></span>
+</mat-toolbar>
+
+<app-site-info class="bodySection"></app-site-info>
+<app-site-protocol class="bodySection"></app-site-protocol>
+<app-site-mcc class="bodySection"></app-site-mcc>

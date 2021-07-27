@@ -1,0 +1,34 @@
+<div  >
+        <img style="position: fixed;
+       
+        min-width: 100%;
+        min-height: 100%;
+        left: 0;
+        top: 0;
+        pointer-events: none;" [src]="banner" />
+    <div>
+            <!-- <img src={{block}}  class="image-size" />  -->
+        <mat-grid-list cols="6" style="height: 38vh;margin-top: 13px;" *ngIf = "!Isexpand_map">
+            <mat-grid-tile [colspan]="3"  style="height: 35vh">
+                <figure style=" border-color: #4863A0;" >
+                    <img [src]="blockPortfolio" width="100" class="image-size" />
+                    <figcaption style="margin-top: -4px; margin-left: 55%;width:50%;font-size: 18px; background-color: #4863A0;height: 28px;color: white;padding: 3px;">Performance</figcaption>
+                    <figcaption class="skip" ><img (click)="performanceDashBoard();" style="float: right;padding: 4px;cursor: pointer;" [src]="skip"/></figcaption>
+
+                </figure>
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="3" style="height: 35vh">
+                  <figure style=" border-color: #4863A0;">
+                      <img [src]="block"  style="width:50%;margin-left: -18px;border-radius: 2px;
+                      border: 1px solid #4863A0;height: 135px;">
+                      <figcaption  style="margin-top: -5px; margin-left: -18px;background-color: #4863A0;font-size: 18px;width: 50%;height: 28px;color: white;padding: 3px;">Forecasting
+                        <figcaption class="skip-right"  ><img (click)="forCastingDashBoard();" style="float: right;padding: 4px;cursor: pointer;"  [src]="skip"/></figcaption>
+                        <!-- <span ><img style="margin-left: -65px" src="../../assets/icon/next.png"></span> -->
+                    </figcaption>
+                    </figure>
+                </mat-grid-tile>
+          </mat-grid-list>
+        </div>
+    
+  </div>
+  

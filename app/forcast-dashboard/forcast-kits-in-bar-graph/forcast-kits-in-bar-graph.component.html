@@ -1,0 +1,76 @@
+<!-- <div echarts [options]="chartOption" [theme]="macarons" (chartClick)="onpieselected($event)" style="width: 100%" (chartInit)="onChartInit($event)"></div>  -->
+
+<mat-progress-bar class="example-margin" color="primary" mode="indeterminate" *ngIf="showLoading">
+            
+</mat-progress-bar>
+<!-- <span style="float:right;">
+           
+            <img style="cursor: pointer;margin-left: 98%;
+            padding-left: 60%" [src]="download" class="btn" (click)="downloadexcel()" alt="">     
+        </span> -->
+   <span style="float:right;">
+            
+            <img style="cursor: pointer; " [src]="info" class="btn" (click)="infoDetails()" alt="">     
+            <img style="cursor: pointer; margin-right: -42px;
+            padding-left: 20px" [src]="download" class="btn" (click)="downloadexcel()" alt="">
+        </span>
+
+<div class="graphContainer" style="padding-top: 30px;width: 92vw">
+      <div>
+            <!-- <span>
+                  <span style="margin-left: 5%">
+                              <svg width="26" height="22">
+                                          <rect width="50" height="27" style="fill:#692A01" />                  
+                                    </svg>
+                  <span style="margin-left: -4px;
+                                                        padding: 14px;
+                                                        margin-top: -10px;
+                                                        position: absolute;">Default Month Kits-In</span>
+                  </span>
+
+                  <span style="margin-left: 25%">
+                              <svg width=26 height="22">
+                                          <rect width="50" height="27" style="fill:#003B00" />
+                  
+                              </svg>
+                  <span style="margin-left: -4px;
+                                                        padding: 14px;
+                                                        margin-top: -10px;
+                                                        position: absolute;">Default Month Kits-Out</span>
+                  </span>
+                 
+                  <span span style="margin-left: 27%">
+                              <svg width=26 height="22">
+                                          <rect width="50" height="27" style="fill:#ffa771;" />
+                  
+                                    </svg>
+                                    <span style="margin-left: -4px;
+                                          padding: 14px;
+                                          margin-top: -10px;
+                                          position: absolute;">Kits-In</span>
+                  </span>      
+                 
+                  <span span style="margin-left: 20%">
+                              <svg width="26" height="22">
+                                          <rect width="50" height="27" style="fill:#85af78;" />
+                  
+                                    </svg>
+                                    <span style="margin-left: -4px;
+                                          padding: 14px;
+                                          margin-top: -10px;
+                                          position: absolute;">Kits-Out</span>
+                  </span>
+
+                  
+                  
+
+            </span> -->
+            <!-- <span style="float:right;">
+                        <img style="cursor: pointer;" [src]="download" class="btn" (click)="downloadexcel()" alt="">     
+                    </span> -->
+
+      </div>
+
+      <div echarts [options]="chartOption" [theme]="macarons" (chartClick)="onpieselected($event)" class="performance-chart"
+            (chartInit)="onChartInit($event)"></div>
+</div>

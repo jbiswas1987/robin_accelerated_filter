@@ -1,0 +1,59 @@
+<div class="row" style="height: 50%">
+  <mat-progress-bar
+    class="example-margin"
+    color="primary"
+    mode="indeterminate"
+    *ngIf="showLoading"
+  >
+  </mat-progress-bar>
+
+  <div class="row" style="height: 20px; margin-top: 25px">
+    <div class="col-sm-4"></div>
+    <div
+      class="col-sm-4"
+      style="
+        margin-left: 37%;
+        margin-top: -37px;
+        color: #005d78;
+        font-weight: bold;
+      "
+    >
+      <span>Protocol</span>
+    </div>
+    <div
+      class="col-sm-4"
+      style="
+        margin-left: 61%;
+        margin-top: -20px;
+        color: #005d78;
+        font-weight: bold;
+      "
+    >
+      <span>Comparator</span>
+    </div>
+  </div>
+
+  <div
+    *ngFor="let item of mccPortfolio; let currentElementIndex = index"
+    style="margin-top: 5px"
+  >
+    <div class="row">
+      <div class="col-4" style="width: 30%">
+        <span>MCC :{{ item.name }}</span>
+        <BR />
+        <span style="color: #989898">MCC :{{ item.desc }}</span>
+      </div>
+      <div
+        class="col-4"
+        style="width: 60%; margin-left: 35%; margin-top: -80px"
+      >
+        <app-mcc-kpi [id]="item.id" [level]="level"></app-mcc-kpi>
+      </div>
+
+      <hr
+        *ngIf="currentElementIndex != 4"
+        style="background-color: dodgerblue; margin-top: -20px"
+      />
+    </div>
+  </div>
+</div>

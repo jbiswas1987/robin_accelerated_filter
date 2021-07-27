@@ -1,0 +1,125 @@
+<section class="ProtocolMetrics bodySection">
+  <mat-accordion>
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <b>Kits In/Out Performance</b>
+        </mat-panel-title>
+       
+      </mat-expansion-panel-header>
+      <div class="row">
+        <div class="col-sm-6">
+            <span style="color: black;margin-left: 20%;width: 50%">Kits-In Performance</span>
+        </div>
+        <div class="col-sm-6">
+            <span style="color: black;margin-left: 70%">Kits-Out Performance</span>
+        </div>
+      </div>
+      <mat-grid-list cols="6" style="height: 45vh;margin-top: 20px;" *ngIf = "!Isexpand_map">
+         
+          <mat-grid-tile [colspan]="3" class="border-container" style="height: 60vh" [rowspan]="siteSunRowspan" >
+            
+              <div echarts [options]="chartOption" style="width: 100%" (chartInit)="onChartInit($event)"></div> 
+            </mat-grid-tile>
+       
+        
+          <mat-grid-tile [colspan]="3" class="border-container"  style="height: 60vh" [rowspan]="siteSunRowspan" >
+            
+              <div style="width: 100%" echarts [options]="chartOption"  (chartInit)="onChartInit($event)"></div> 
+            </mat-grid-tile>
+         
+          <!-- <div style="margin-left: 50%;" echarts [options]="chartOption"  (chartInit)="onChartInit($event)"></div>  -->
+         </mat-grid-list>
+         <div class="row" style="margin-left: 75px;width: 50%;">
+           <div class="col-sm-3" style="width: 50%;">
+              <svg width="120" height="4">
+                  <rect width="100" height="3" style="fill:#abcdff;" />
+                </svg>
+              <span style="color: black;margin-left: 1%;width: 50%">
+              Comparator Brand
+              </span>
+           </div>
+           <div class="col-sm-3" style="width: 50%;">
+              <svg width="120" height="3">
+                  <rect width="100" height="3" style="fill:#deebff;stroke-width:3;" />
+                </svg>
+              <span style="color: black;margin-left: 1%;width: 50%">
+                LB
+              </span>
+           </div>
+           <div class="col-sm-3" style="width: 50%;">
+              <svg width="120" height="4" style="border: 3px dotted #ff0000; border-style: none none dotted;width: 100px">
+                  <rect width="100" height="4" style="fill:#abcdff;stroke-width:3;" />
+                </svg>
+              <span style="color: black;margin-left: 1%;width: 50%;margin-left:24px;">
+              <!-- Upper FC Brand -->
+              </span>
+             
+           </div>
+         </div>
+         <div class="row" style="margin-left: 40%;width: 50%;">
+            <div class="col-sm-3" style="margin-top:-75px;width: 50%">
+                <svg width="120" height="4">
+                    <rect width="100" height="4" style="fill:#deebff;stroke-width:3;" />
+                  </svg>
+                <span style="color: black;margin-left: 1%;width: 50%">
+                   
+                UB
+                </span>
+            </div>
+            <div class="col-sm-3">
+                <!-- <svg width="120" height="20">
+                    <rect width="100" height="15" style="fill:#abcdff;;stroke-width:3;" />
+                  </svg> -->
+                  <svg width="120" height="5" style="border: 3px dotted #b22222; border-style: none none dotted;width: 100px">
+                      <!-- <rect width="100" height="3" style="fill:#abcdff;stroke-width:3;" /> -->
+                    </svg>
+                <span style="color: black;margin-left: 3%;width: 50%">
+                    Upper FC Brand
+                </span>
+             </div>
+             <div class="col-sm-3">
+                <div class="col-sm-3" style="width: 50%;">
+                    <svg width="120" height="10" style="border: 3px dotted #b22222; border-style: none none dotted;width: 100px">
+                      </svg>
+                    <span style="color: black;margin-left: 1%;width: 50%;margin-left:24px;">
+                    Lower FC Brand
+                    </span>
+                   
+                 </div>
+               </div>
+          </div>
+
+          <div class="row" style="margin-left: 75%;width: 50%;">
+              <div class="col-sm-3" style="margin-top:-75px;width: 50%">
+                  <svg width="120" height="5">
+                      <rect width="100" height="3" style="fill:#4682B4;stroke-width:3;" />
+                    </svg>
+                  <span style="color: black;margin-left: 1%;width: 50%">
+                     
+                   Comparator (Median)
+                  </span>
+              </div>
+              <div class="col-sm-3">
+                  <svg width="120" height="5">
+                      <rect width="100" height="3" style="fill:#000000;stroke-width:3;" />
+                    </svg>
+                  <span style="color: black;margin-left: 1%;width: 50%">
+                     
+                    Actuals
+                  </span>
+               </div>
+               <div class="col-sm-3">
+                  <svg width="120" height="5">
+                      <rect width="100" height="3" style="fill:#FF0000;stroke-width:3;" />
+                    </svg>
+                  <span style="color: black;margin-left: 1%;width: 50%">
+                     
+                    Forcast
+                  </span>
+                 </div>
+            </div>
+      
+      </mat-expansion-panel>
+    </mat-accordion>
+  </section>

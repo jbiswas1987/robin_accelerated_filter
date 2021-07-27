@@ -1,0 +1,9 @@
+<mat-progress-bar class="example-margin"
+                  color="primary"
+                  mode="indeterminate"
+                  *ngIf="showLoading">
+</mat-progress-bar>
+<div class="graphContainer">
+  <b>Sites</b>
+  <div echarts [options]="chartOptionSites" class="demo-chart" (chartInit)="onChartInit($event)"></div>
+</div>

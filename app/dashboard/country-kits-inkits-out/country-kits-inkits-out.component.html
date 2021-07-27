@@ -1,0 +1,97 @@
+
+
+<section class="bodySection">
+    <mat-accordion>
+      <mat-expansion-panel [expanded]="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <b>Country Level</b>         
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-progress-bar
+        class="example-margin"
+        color="primary"
+        mode="indeterminate" style="width: 50%;" *ngIf ="showLoadingForMap">
+      </mat-progress-bar >   
+    
+        <mat-grid-list cols="6" style="height: 38vh;margin-top: 13px;" *ngIf = "!Isexpand_map">
+          <mat-grid-tile [colspan]="1" style="height: 60vh;background-color: #f1f1f1;border-style: ridge" [rowspan]="siteSunRowspan" >
+            <div class="row" style="margin-top: 12px;" >
+              <div class="col-sm-2" style="padding-left:37px">
+                
+                <button style="margin-left: 8px;border-radius: 5px;">Kits - In</button>
+
+                <button style="margin-left: 8px;border-radius: 5px;">Kits - Out</button>
+              </div>
+              <div class="col-sm-2" style="margin-top: 12px;" >
+                  <select style="margin-left:65px" name="city" class="rounded-inputs20 select-select col-md-3" (change)="onChange($event.target.value)">
+                      <option *ngFor="let country of countries"  [value]="country.id">{{country.name}}</option>
+                  </select>
+              </div>
+             
+              <div class="col-sm-2" style="margin-top: 10px;" >
+                  <span style="margin-left: 5px;"> % deviation from last month</span>
+               </div>
+
+               <div class="col-sm-2" style="margin-top: 12px;" >
+                  <input type="number" [(ngModel)]="upperBound" style="width: 50%;height: 25px;margin-left: 50px;" min="-100" placeholder="Upper Bound (%)" >
+                  <input [(ngModel)]="lowerBound" style="width: 50%; height: 25px; margin-left: 50px; margin-top: 20px" placeholder="Lower Bound (%)" >
+                  <button type="number" style="width: 40%; height: 20px; margin-left: 55px; margin-top: 15px" max ="100"> Submit</button>
+              </div>
+              <div class="col-sm-2" style="margin-top: 12px;" >
+                  <div class="col-sm-2" >
+                      <span style="margin-left: 2px;padding-left:12px;font-weight: bold">Current Month</span>
+                      <span style="margin-left: 16px;">|</span>
+                      <span style="margin-left: 15px;font-weight: bold">Last Month</span>
+                    </div>
+              </div>
+
+              <div class="col-sm-2" style="margin-top: 10px;" >
+                  <div class="col-sm-2" >
+                      <span style="margin-left: 2px;padding-left:1px;font-weight: bold">Protocols</span>
+                      <span style="margin-left: 2px;padding-left:3px">153000</span>
+                      <span style="margin-left: 7px;">|</span>
+                      <span style="margin-left: 15px;">200000</span>
+                    </div>
+              </div>
+              <div class="col-sm-2" style="margin-top: 5px;" >
+                  <div class="col-sm-2" >
+                      <span style="margin-left: 2px;padding-left:1px;font-weight: bold">Kits -  In</span>
+                      <span style="margin-left: 12px;padding-left:5px">153000</span>
+                      <span style="margin-left: 7px;">|</span>
+                      <span style="margin-left: 15px;">200000</span>
+                    </div>
+              </div>
+
+              <div class="col-sm-2" style="margin-top: 5px;" >
+                  <div class="col-sm-2" >
+                      <span style="margin-left: 2px;padding-left:1px;font-weight: bold">Kits - Out</span>
+                      <span style="margin-left: 2px;padding-left:5px">153000</span>
+                      <span style="margin-left: 7px;">|</span>
+                      <span style="margin-left: 15px;">200000</span>
+                    </div>
+              </div>
+
+            </div>
+            </mat-grid-tile>
+            <!-- <div class="chartdiv" style="margin-left: 8%"  id="chartdiv"></div> -->
+            <mat-grid-tile [colspan]="5" class="chartdiv" style="height: 60vh;background-color: #FFFFFF;margin-left: 5px;" [rowspan]="siteSunRowspan" >
+                <div class="chartdiv"  id="chartdiv"></div>
+                </mat-grid-tile>
+            <!-- <div style="margin-left: 30%;margin-right: 10%"  id="chartdiv"></div> -->
+         <!-- <mat-grid-tile [colspan]="3"  class="siteTable" style="margin-left: 10px;width: 90%;height: 42vh;top:-50px;position: relative;display: inline-flex" [rowspan]="siteSunRowspan">  -->
+            
+            <!-- <app-dashboard-site-table style="min-height: 0px;margin-bottom: 30px;max-height: 0px;"></app-dashboard-site-table> -->
+            
+            <!-- <div echarts [options]="chartOption" (chartInit)="onChartInit($event)"></div> -->
+          <!-- </mat-grid-tile> -->
+          <!-- <div style="margin-left: 50%;" echarts [options]="chartOption"  (chartInit)="onChartInit($event)"></div>  -->
+         </mat-grid-list>
+       
+      
+      </mat-expansion-panel>
+    </mat-accordion>
+  </section>
+  
+  
+  

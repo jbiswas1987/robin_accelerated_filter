@@ -1,0 +1,9 @@
+<mat-progress-bar class="example-margin"
+                  color="primary"
+                  mode="indeterminate"
+                  *ngIf="showLoading">
+</mat-progress-bar>
+<div class="graphContainer">
+  <b style="position: relative;bottom: -4px;">{{chartname}}</b>
+  <div echarts [options]="chartOption" class="performance-chart" (chartInit)="onChartInit($event)"></div>
+</div>

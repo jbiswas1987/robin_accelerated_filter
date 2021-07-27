@@ -1,0 +1,18 @@
+<section class="ProtocolMetrics bodySection">
+  <mat-accordion>
+    <mat-expansion-panel [expanded]="false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <b>MCC performance</b>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+     
+      <app-protocol-mcc-metrics-details></app-protocol-mcc-metrics-details>
+        <!-- <mat-tab-group [(selectedIndex)]="tabIndex" (selectedTabChange)="onTabChanged($event)">
+          <mat-tab label="Protocol Level"> <app-protocol-mcc-metrics-details></app-protocol-mcc-metrics-details> </mat-tab>
+          <mat-tab label="Site Level" [disabled]="siteTabFlag">
+          <app-site-mcc-metrics-details #sitemcc></app-site-mcc-metrics-details> </mat-tab> 
+        </mat-tab-group> -->
+    </mat-expansion-panel>
+  </mat-accordion>
+</section>

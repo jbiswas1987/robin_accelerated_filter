@@ -1,0 +1,15 @@
+<mat-progress-bar
+  class="example-margin"
+  color="primary"
+  mode="indeterminate"
+  *ngIf="showLoading"
+>
+</mat-progress-bar>
+<div
+  echarts
+  [options]="option"
+  class="demo-chart performance-chart"
+  (chartInit)="onChartInit($event)"
+  [loading]="true"
+></div>
+<!-- [theme]="macarons" -->

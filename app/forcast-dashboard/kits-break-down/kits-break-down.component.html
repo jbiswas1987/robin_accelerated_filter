@@ -1,0 +1,34 @@
+<section class="bodySection">
+  <mat-accordion>
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <b>Kits Breakdown</b>
+        </mat-panel-title>
+
+      </mat-expansion-panel-header>
+
+
+      <mat-progress-bar class="example-margin" color="primary" mode="indeterminate" *ngIf="showLoading">
+      </mat-progress-bar>
+
+      <mat-panel-title class="boder-area" >
+          <span  [ngStyle]="{'background-color':textdecorationKitsIN,'text-decoration': textdecorationKitsOut,'color' : textColorKitsOut,'text-underline-position': textUnderLinePosKitsOut,'text-decoration-color':textUnderLineColorCodeKitsOut,'text-decoration-thickness':underLineTicknessKitsOut,'text-underline-offset':textunderlineoffsetKitsOut}"
+          style="font-size: 13px;cursor: pointer;margin-left: 18px;" (click)="kitsOUT();">Kits Out</span>
+        <span style="font-size: 13px;cursor: pointer;margin-left: 20px;" [ngStyle]="{'background-color':textdecorationKitsIN,'text-decoration': textdecorationKitsIN,'color' : textColorKitsIN,'text-underline-position': textUnderLinePosKitsIN,'text-decoration-color':textUnderLineColorCodeKitsIN,'text-decoration-thickness':underLineTicknessKitsIN,'text-underline-offset':textunderlineoffsetKitsIN}"
+          (click)="kitsIN();">Kits In</span>
+        <!-- <span  [ngStyle]="{'background-color':textdecorationKitsIN,'text-decoration': textdecorationKitsOut,'color' : textColorKitsOut,'text-underline-position': textUnderLinePosKitsOut,'text-decoration-color':textUnderLineColorCodeKitsOut,'text-decoration-thickness':underLineTicknessKitsOut,'text-underline-offset':textunderlineoffsetKitsOut}"
+          style="font-size: 13px;cursor: pointer;margin-left: 20px;" (click)="kitsOUT();">Kits Out</span> -->
+        <!-- <span style="border-left: 2px solid black;height: 16px;margin-left: 30px;"> </span> -->
+       
+        <span [ngStyle]="{'background-color':textdecorationKitsActual,'text-decoration': textdecorationKitsActual,'color' : textColorKitsActual,'text-underline-position': textUnderLinePosKitsActual,'text-decoration-color':textUnderLineColorCodeKitsActual,'text-decoration-thickness':underLineTicknessKitsActual,'text-underline-offset':textunderlineoffsetKitsActual}"
+        style="font-size: 13px;cursor: pointer;margin-left: 30px" (click)="actual();">Actual</span>
+        <span  [ngStyle]="{'background-color':textdecorationKitsForecast,'text-decoration': textdecorationKitsForecast,'color' : textColorKitsForecast,'text-underline-position': textUnderLinePosKitsForecast,'text-decoration-color':textUnderLineColorCodeKitsForecast,'text-decoration-thickness':underLineTicknessKitsForecast,'text-underline-offset':textunderlineoffsetKitsForcast}"
+        (click)="kitsForecast();"  style="font-size: 13px;margin-left: 20px;cursor: pointer;padding-right: 10px;">Forecast</span>
+      </mat-panel-title>
+
+      <div echarts [options]="chartOptionTA" class="demo-chart" (chartInit)="onChartInit($event)" [loading]="true"></div>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+</section>

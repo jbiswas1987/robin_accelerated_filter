@@ -1,0 +1,53 @@
+
+
+<section class="bodySection">
+  <mat-accordion>
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <b>Site Details</b>         
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-progress-bar
+      class="example-margin"
+      color="primary"
+      mode="indeterminate" style="width: 50%;" *ngIf ="showLoadingForMap">
+    </mat-progress-bar >   
+  
+      <mat-grid-list cols="6" style="height: 38vh;margin-top: 13px;" *ngIf = "!Isexpand_map">
+        <mat-grid-tile [colspan]="3" style="height: 60vh" [rowspan]="siteSunRowspan" >
+          <agm-map #AgmMap style="width: 100%;height: 70vh;" [latitude]="lat" [longitude]="lng" [disableDefaultUI]="false" [zoom]="zoom"  
+           (mouseOver)="onMouseOver(m)" #gm 
+            [zoomControl]="true"  [mapTypeId]="'roadmap'" 
+             (boundsChange)="checkMarkersInBounds($event)"  (centerChange)="centerChange($event,m)"
+             [scaleControl]="true"  (zoomChange)="zoomChange($event)" 
+             [fitBounds]="true"
+            [zoomControlOptions]="zoomControlOptions"
+            [fullscreenControl]="true"
+            [fullscreenControlOptions]="fullscreenControlOptions" >
+         
+            <agm-marker *ngFor="let m of markers; let i = index" (markerClick)="clickedMarker(m, $event)" 
+              [latitude]="m.lat" [longitude]="m.lng"  [markerDraggable]="m.draggable" (dragEnd)="markerDragEnd(m, $event)"
+              (mouseOver)="onMouseOver(infoWindow,m.ongoingProtocols,m.activePhysicians,m.city,m.country,m.zip, i,m.enrLowPerformerSiteCount, m.enrHighPerformerSiteCount,m.scrLowPerformerSiteCount,m.scrHighPerformerSiteCount,m.scrMediumPerformerSiteCount,m.scrNonPerformerSiteCount,m.enrMediumPerformerSiteCount,m.enrNonPerformerSiteCount)"  (mouseOut)="onMouseOut(infoWindow, $event)" 
+              [iconUrl]= "m.markerImage" [agmFitBounds]="true"
+            >
+             
+             </agm-marker>
+          </agm-map>
+          </mat-grid-tile>
+        
+       <!-- <mat-grid-tile [colspan]="3"  class="siteTable" style="margin-left: 10px;width: 90%;height: 42vh;top:-50px;position: relative;display: inline-flex" [rowspan]="siteSunRowspan">  -->
+          
+          <!-- <app-dashboard-site-table style="min-height: 0px;margin-bottom: 30px;max-height: 0px;"></app-dashboard-site-table> -->
+          
+          <!-- <div echarts [options]="chartOption" (chartInit)="onChartInit($event)"></div> -->
+        <!-- </mat-grid-tile> -->
+        <div style="margin-left: 50%;" echarts [options]="chartOption"  (chartInit)="onChartInit($event)"></div> 
+       </mat-grid-list>
+     
+    
+    </mat-expansion-panel>
+  </mat-accordion>
+</section>
+
+

@@ -1,0 +1,44 @@
+<section class="bodySection">
+  <mat-accordion>
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <b>Overview</b>
+        </mat-panel-title>
+        <div>
+          <mat-panel-title style="margin-left: -60%;">
+            <button style="border-radius: 5px;">Kits In</button>
+            <button style="margin-left: 10px;border-radius: 5px;">Kits Out</button>
+            
+          </mat-panel-title>
+
+
+        </div>
+
+        <!-- <mat-panel-title style="margin-left: -75%;">
+             <button>Kits In</button>
+             <button style="margin-left: 20px;">Kits Out</button>
+            </mat-panel-title> -->
+
+        <!-- <mat-panel-title >
+                <button>Actual</button>
+                <button style="margin-left: 20px;">Forcast</button>
+               </mat-panel-title> -->
+      </mat-expansion-panel-header>
+
+
+      <mat-progress-bar class="example-margin" color="primary" mode="indeterminate" *ngIf="showLoading">
+      </mat-progress-bar>
+      <mat-table #table [dataSource]="dataSource">
+        <ng-container  [matColumnDef]="columnName" *ngFor="let columnName of displayedColumns">
+          <mat-header-cell *matHeaderCellDef style="background-color: #dbdbdb;color: black;"> {{columnName}} </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element[columnName]}} </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+</section>

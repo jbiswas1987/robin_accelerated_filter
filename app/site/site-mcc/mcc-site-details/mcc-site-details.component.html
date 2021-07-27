@@ -1,0 +1,48 @@
+<section class="bodySection">
+  <mat-accordion>
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <b>Portfolio Level Metrics</b>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-grid-list cols="4" rowHeight="30vh">
+        <mat-grid-tile [colspan]="2" [rowspan]="4">
+          <!-- [style.background]="blue" -->
+          <mat-progress-bar
+            class="example-margin"
+            color="primary"
+            mode="indeterminate"
+            *ngIf="showLoading"
+          >
+          </mat-progress-bar>
+          <app-all-kpi></app-all-kpi>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <!-- [style.background]="blue" -->
+          <app-mcc-kpi [name]="kpi_CL02bTP"></app-mcc-kpi>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <!-- [style.background]="blue" -->
+          <app-mcc-kpi [name]="kpi_CL02dQP"></app-mcc-kpi>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <!-- [style.background]="blue" -->
+          <app-mcc-kpi [name]="kpi_CL03bTP"></app-mcc-kpi>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <!-- [style.background]="blue" -->
+          <app-mcc-kpi [name]="kpi_CL08bTP"></app-mcc-kpi>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <!-- [style.background]="blue" -->
+          <app-mcc-kpi [name]="kpi_CL08dTP"></app-mcc-kpi>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <!-- [style.background]="blue" -->
+          <app-mcc-kpi [name]="kpi_CL09bTP"></app-mcc-kpi>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </mat-expansion-panel>
+  </mat-accordion>
+</section>

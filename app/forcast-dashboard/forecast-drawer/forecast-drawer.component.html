@@ -1,0 +1,63 @@
+<mat-accordion stopPropagation>
+    <mat-expansion-panel stopPropagation [expanded]="expandEDTrailType" (click)="expandTrailType();" style="margin: 7px;width: 100%;margin-left:1px">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <b><span style="color: #005d78">Trial List Type</span> </b>
+        </mat-panel-title>     
+      </mat-expansion-panel-header>
+      <div   class="graphContainer" style="height: 200px; overflow-x: hidden !important;margin-top: 0px;width: 200px;overflow: hidden;">
+          <ng-multiselect-dropdown stopPropagation class="dropdown-list item1 dropdown-list" [data]="_trailTypeList" 
+          [(ngModel)]="selectedItemsTrailList" [settings]="dropdownSettingsForTrailType" (onSelect)="onItemSelectForTrailList($event)" 
+          (onSelectAll)="onItemALLSelectForTrailList($event)" (onDeSelectAll)="deselletItemALLForTrailList($event)" 
+          (onDeSelect)="onItemDeSelectForTrailList($event)">
+          </ng-multiselect-dropdown>
+        </div>
+      </mat-expansion-panel>
+  </mat-accordion>
+  <mat-accordion>
+  <mat-expansion-panel stopPropagation [expanded]="expandEDSponsorTYpe" (click)="expandSponsorTYpe();" style="margin: 7px;width: 100%;margin-left:1px">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+          <b><span style="color: #005d78">Sponsor</span> </b>
+       
+      </mat-panel-title>     
+    </mat-expansion-panel-header>
+    <div class="graphContainer" style="height: 300px; overflow-x: hidden !important;margin-top: 0px;width: 200px;overflow: hidden;">
+        <ng-multiselect-dropdown stopPropagation  class="dropdown-list dropdown-list item1 item2" 
+        [(ngModel)]="selectedItemsSponsorList" [data]="_sponsorList" 
+        [settings]="dropdownSettingsForSponsor" (onSelect)="onItemSelectForSponsorList($event)" 
+        (onSelectAll)="onItemALLSelectForSponsorList($event)" (onDeSelectAll)="deselletItemALLForSponsorList($event)" 
+        (onDeSelect)="onItemDeSelectForForSponsorList($event)">
+        </ng-multiselect-dropdown>
+      </div>
+   </mat-expansion-panel>
+</mat-accordion>
+<mat-accordion>
+  <mat-expansion-panel stopPropagation [expanded]="expandEDProtocolTYpe" (click)="expandProtocolTYpe()" style="margin: 7px;width: 100%;margin-left:1px" >
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+          <b><span style="color: #005d78">Protocol Name</span> </b>           
+      </mat-panel-title>     
+    </mat-expansion-panel-header>
+   
+        <div class="graphContainer" style="height: 300px; overflow-x: hidden !important;margin-top: 0px;width: 200px;overflow: hidden;">
+            <ng-multiselect-dropdown stopPropagation class="dropdown-list dropdown-list item1 item2 filter-textbox"  [data]="_protocolNameList" 
+            [(ngModel)]="selectedItemsProtocolNameList"
+            [settings]="dropdownSettingsForProtocolName" (onSelect)="onItemSelectForProtocolNameList($event)" 
+            (onSelectAll)="onItemALLSelectForProtocolNameList($event)" (onDeSelectAll)="deselletItemALLForProtocolNameList($event)" 
+            (onDeSelect)="onItemDeSelectForProtocolNameList($event)">
+            </ng-multiselect-dropdown>
+        </div>
+    </mat-expansion-panel>
+
+    <div>
+        <span  style="color: red;">
+            {{errorMessage}}
+          </span>
+    </div>
+  
+      <button class="button-position apply-button" (click)="Apply()">APPLY</button>
+      <button class="button-position reset-button" (click)="ResetButton()">RESET</button>
+  
+  
+</mat-accordion>

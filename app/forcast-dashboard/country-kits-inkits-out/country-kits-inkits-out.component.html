@@ -1,0 +1,79 @@
+<!-- 
+
+<section class="bodySection">
+    <mat-accordion>
+      <mat-expansion-panel style="background-color: none;" [expanded]="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <b>Country Level</b>         
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-progress-bar
+        class="example-margin"
+        color="primary"
+        mode="indeterminate" style="width: 50%;" *ngIf ="showLoading">
+      </mat-progress-bar >   
+    
+        <mat-grid-list cols="6" style="height: 45vh;margin-top: 10px;" *ngIf = "!Isexpand_map">
+          <mat-grid-tile [colspan]="1" style="height: 75vh;background-color: #FFFFFF;"  class="border-container" [rowspan]="siteSunRowspan" >
+            <div class="row" style="margin-top: 10px;" >
+              <div class="col-sm-2 boder-area" >
+                
+                <span [ngStyle]="{'background-color':buttonBGColorKitsIN,'text-decoration': textdecorationKitsIN,'color' : textColorKitsIN,'text-underline-position': textUnderLinePosKitsIN,'text-decoration-color':textUnderLineColorCodeKitsIN,'text-decoration-thickness':underLineTicknessKitsIN,'text-underline-offset':textunderlineoffsetKitsIN}"   style="cursor:pointer;margin-left: 20px;    font-size: 13px;
+                " (click)="kitsIN();">Kits - In</span>
+                <span   [ngStyle]="{'background-color':textdecorationKitsIN,'text-decoration': textdecorationKitsOut,'color' : textColorKitsOut,'text-underline-position': textUnderLinePosKitsOut,'text-decoration-color':textUnderLineColorCodeKitsOut,'text-decoration-thickness':underLineTicknessKitsOut,'text-underline-offset':textunderlineoffsetKitsOut}" 
+                 style="margin-left: 20px;cursor:pointer;font-size: 13px;" (click)="kitsOUT();">Kits - Out</span>
+              </div>
+             
+              <hr style="width:100%;text-align:left;margin-left:0;top:5px;margin-top: 20px; ">
+              <div class="col-sm-2" style="margin-top: 8px;" >
+                <select style="margin-left:65px" name="city" class="rounded-inputs20 select-select col-md-3" (change)="onChange($event.target.value)">
+                    <option *ngFor="let currentmontyear of currentMonthYear"  [value]="currentmontyear.forCastMonth">{{currentmontyear.forCaseMonthDisplay}}</option>
+                </select>
+            </div>
+           
+             
+              <div class="col-sm-2" style="margin-top: 10px;" >
+                  <span style="margin-left: 25px;font: 400 14px/20px Roboto,Helvetica Neue,sans-serif;" class="text-style"> % deviation from last month</span>
+               </div>
+
+
+               <div class="col-sm-2" style="margin-top: 12px;" >
+                  <span style="margin-left: 50px;"  class="text-style"> Upper Bound (%)</span>
+                  <input [(ngModel)]="upperBound" style="width: 50%;height: 12px;margin-left: 50px;" type="text">
+                  <span style="margin-left: 51px; margin-top: 9px;padding-top: 8px; position: relative;display: flex;" class="text-style"> Lower Bound (%)</span>
+                  <input [(ngModel)]="lowerBound" style="width: 50%; height: 12px; margin-left: 50px; "  type="text">
+                  <button mat-raised-button class="button-new hover-class:hover" (click)="NewDevitationInformation();" >
+                    <span style="position: absolute;bottom: -6px;font-size: 14px;">Submit</span>   
+                  </button>
+
+                </div>
+                <hr style="width:100%;text-align:left;margin-left:0;top:5px;">
+              <mat-table #table [dataSource]="dataSource" style="margin-top: 10px;">
+                <ng-container [matColumnDef]="columnName" *ngFor="let columnName of displayedColumns">
+                  <mat-header-cell class="text-style" *matHeaderCellDef style="color: #757575;font: 200 13px/14px Roboto,Helvetica Neue,sans-serif;font-size: 12px;
+                  font-weight: bold;   position: absolute;">
+                    {{columnName}} </mat-header-cell>
+                  <mat-cell class="text-style" *matCellDef="let element"> {{element[columnName]}} </mat-cell>
+                </ng-container>
+        
+                <mat-header-row class="text-style" *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row style="margin-left: -20px; padding: 0px;" class="text-style" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+              </mat-table>
+            
+
+            </div>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="5" class="chartdiv" style="height: 70vh;background-color: #FFFFFF;margin-left: 5px;" [rowspan]="siteSunRowspan" >
+                <div class="chartdiv"  id="chartdiv"></div>
+                </mat-grid-tile>
+          
+         </mat-grid-list>
+       
+      
+      </mat-expansion-panel>
+    </mat-accordion>
+  </section>
+  
+  
+   -->

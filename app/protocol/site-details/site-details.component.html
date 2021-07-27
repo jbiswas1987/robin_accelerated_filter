@@ -1,0 +1,76 @@
+<section class="SiteDetails bodySection">
+  <mat-accordion>
+    <mat-expansion-panel [expanded]="false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <b style="font-size: 16px">Site Details</b>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-progress-bar
+        class="progress-bar-margin"
+        color="primary"
+        mode="indeterminate"
+        *ngIf="showLoading"
+      >
+      </mat-progress-bar>
+      <q-grid [rows]="rows$ | async">
+        <q-grid-columns>
+          <q-grid-column key="details" title="Link" type="url">
+            <!-- [label]="myLabel" -->
+            <ng-template for="body" let-$cell>
+              <!-- <a (click)="getSiteID($cell.value)" class="ng-star-inserted"
+                ><u style="color: blue; cursor: pointer">details</u>
+              </a> -->
+              <a
+                *ngIf="$cell.tr.model.sltInvestigatorId === 1"
+                (click)="getSiteID($cell.value)"
+                class="ng-star-inserted"
+                ><u style="color: blue; cursor: pointer; padding-left: 10px"
+                  >details</u
+                >
+              </a>
+              <a
+                *ngIf="$cell.tr.model.sltInvestigatorId === 0"
+                tooltip="No investigator info available"
+                class="ng-star-inserted"
+                ><label style="padding-left: 10px">--</label>
+              </a>
+            </ng-template>
+          </q-grid-column>
+          <q-grid-column key="name" title="Name" type="string"> </q-grid-column>
+          <q-grid-column key="siteName" title="Site Name" type="string">
+          </q-grid-column>
+          <q-grid-column key="department" title="Department" type="string">
+          </q-grid-column>
+          <q-grid-column key="street" title="Street" type="string">
+          </q-grid-column>
+          <q-grid-column key="city" title="City" type="string"> </q-grid-column>
+          <q-grid-column key="zip" title="Zip" type="string"> </q-grid-column>
+          <q-grid-column key="country" title="Country" type="string">
+          </q-grid-column>
+          <q-grid-column key="fks" title="Fks" type="date"> </q-grid-column>
+          <q-grid-column
+            key="firstPatientEnroll"
+            title="First Patient Enroll"
+            type="date"
+          >
+          </q-grid-column>
+          <q-grid-column
+            key="firstPatientScreen"
+            title="First Patient Screen"
+            type="date"
+          >
+          </q-grid-column>
+          <q-grid-column key="screenCount" title="Screen Count" type="string">
+          </q-grid-column>
+          <q-grid-column
+            key="enrollmentCount"
+            title="Enrollment Count"
+            type="string"
+          >
+          </q-grid-column>
+        </q-grid-columns>
+      </q-grid>
+    </mat-expansion-panel>
+  </mat-accordion>
+</section>

@@ -1,0 +1,60 @@
+.bodySection {
+    margin: 10px;
+  }
+  
+  ::ng-deep .mat-form-field-flex > .mat-form-field-infix {
+    padding: 0.4em 0px !important;
+  }
+  
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-label {
+    margin-top: -15px;
+  }
+  
+  ::ng-deep label.ng-star-inserted {
+    transform: translateY(-0.59375em) scale(0.75) !important;
+  }
+  
+  .header {
+    background-color: #005d78;
+    position: relative;
+    height: 52px;
+    z-index: 2;
+  }
+  
+  .colorWithSize {
+    color: white;
+    font-size: smaller;
+  }
+  
+  .brandAndLogoutAlign {
+    margin-bottom: 5px;
+  }
+  
+  .siteSponsor {
+    color: white;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 17px;
+  }
+  .sponsor-spacer {
+    /* margin-left: 44%; */
+    /* find out the center of the header section using viewport width
+       and substract the width of the Brand label, Sponsor label and sponsor dropdown width 
+    
+    75px = width of sponsor label
+    180px = width of dropdown
+    -- 180px + 75px => 255px / 2 => 128px 
+    43px = width of Brand name label
+    16px = padding of the header 
+    -- 43px + 16px => 59px
+    */
+  
+    margin-left: calc(40vw - 128px - 59px) !important;
+  }
+  .image-width{
+    width: 150px; 
+    margin-top: 10px;
+   /* margin-top: 15px;
+   height: 45px; */
+  }
+
+  

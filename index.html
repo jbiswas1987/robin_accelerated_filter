@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" style="overflow: auto;overflow-x: hidden;">
+  <head>
+    <meta charset="utf-8" />
+    <title>Robin</title>
+    <base href="/" />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+  />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- bootstrap css
+    <link
+      href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    /> -->
+    <script src="https://maps.googleapis.com/maps/api/js?v=3&libraries=places&key=AIzaSyBVfYfJ1JuOGoGqzafn21sLf3jdhTxpjXY"></script>
+   
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+    <script src="https://unpkg.com/@google/markerclustererplus@4.0.1/dist/markerclustererplus.min.js"></script>
+    <script src="https://www.amcharts.com/lib/4/core.js"></script>
+    <script src="https://www.amcharts.com/lib/4/maps.js"></script>
+    <script src="https://www.amcharts.com/lib/4/geodata/worldLow.js"></script>
+
+    <script>var appLocation = './';
+      var boilerplatePath = '';
+      var systemJsMap = {
+"@ag-grid-community/all-modules/dist/styles/ag-grid.css": "https://unpkg.com/@ag-grid-community/all-modules@25.0.0/dist/styles/ag-grid.css",
+"@ag-grid-community/core/dist/styles/ag-grid.css": "https://unpkg.com/@ag-grid-community/core@25.0.0/dist/styles/ag-grid.css",
+"@ag-grid-community/all-modules/dist/styles/ag-theme-alpine-dark.css": "https://unpkg.com/@ag-grid-community/all-modules@25.0.0/dist/styles/ag-theme-alpine-dark.css",
+"@ag-grid-community/core/dist/styles/ag-theme-alpine-dark.css": "https://unpkg.com/@ag-grid-community/core@25.0.0/dist/styles/ag-theme-alpine-dark.css",
+"@ag-grid-community/all-modules/dist/styles/ag-theme-alpine.css": "https://unpkg.com/@ag-grid-community/all-modules@25.0.0/dist/styles/ag-theme-alpine.css",
+"@ag-grid-community/core/dist/styles/ag-theme-alpine.css": "https://unpkg.com/@ag-grid-community/core@25.0.0/dist/styles/ag-theme-alpine.css",
+"@ag-grid-community/all-modules/dist/styles/ag-theme-balham-dark.css": "https://unpkg.com/@ag-grid-community/all-modules@25.0.0/dist/styles/ag-theme-balham-dark.css",
+"@ag-grid-community/core/dist/styles/ag-theme-balham-dark.css": "https://unpkg.com/@ag-grid-community/core@25.0.0/dist/styles/ag-theme-balham-dark.css",
+"@ag-grid-community/all-modules/dist/styles/ag-theme-balham.css": "https://unpkg.com/@ag-grid-community/all-modules@25.0.0/dist/styles/ag-theme-balham.css",
+"@ag-grid-community/core/dist/styles/ag-theme-balham.css": "https://unpkg.com/@ag-grid-community/core@25.0.0/dist/styles/ag-theme-balham.css",
+"@ag-grid-community/all-modules/dist/styles/ag-theme-blue.css": "https://unpkg.com/@ag-grid-community/all-modules@25.0.0/dist/styles/ag-theme-blue.css",
+"@ag-grid-community/core/dist/styles/ag-theme-blue.css": "https://unpkg.com/@ag-grid-community/core@25.0.0/dist/styles/ag-theme-blue.css",
+"@ag-grid-community/all-modules/dist/styles/ag-theme-bootstrap.css": "https://unpkg.com/@ag-grid-community/all-modules@25.0.0/dist/styles/ag-theme-bootstrap.css",
+"@ag-grid-community/core/dist/styles/ag-theme-bootstrap.css": "https://unpkg.com/@ag-grid-community/core@25.0.0/dist/styles/ag-theme-bootstrap.css",
+"@ag-grid-community/all-modules/dist/styles/ag-theme-dark.css": "https://unpkg.com/@ag-grid-community/all-modules@25.0.0/dist/styles/ag-theme-dark.css",
+"@ag-grid-community/core/dist/styles/ag-theme-dark.css": "https://unpkg.com/@ag-grid-community/core@25.0.0/dist/styles/ag-theme-dark.css",
+"@ag-grid-community/all-modules/dist/styles/ag-theme-fresh.css": "https://unpkg.com/@ag-grid-community/all-modules@25.0.0/dist/styles/ag-theme-fresh.css",
+"@ag-grid-community/core/dist/styles/ag-theme-fresh.css": "https://unpkg.com/@ag-grid-community/core@25.0.0/dist/styles/ag-theme-fresh.css",
+"@ag-grid-community/all-modules/dist/styles/ag-theme-material.css": "https://unpkg.com/@ag-grid-community/all-modules@25.0.0/dist/styles/ag-theme-material.css",
+"@ag-grid-community/core/dist/styles/ag-theme-material.css": "https://unpkg.com/@ag-grid-community/core@25.0.0/dist/styles/ag-theme-material.css",
+"@ag-grid-community/react": "https://unpkg.com/@ag-grid-community/react@25.0.0/",
+"@ag-grid-community/angular": "https://unpkg.com/@ag-grid-community/angular@25.0.0/",
+"@ag-grid-community/vue": "https://unpkg.com/@ag-grid-community/vue@25.0.0/",
+"ag-grid-community": "https://unpkg.com/ag-grid-community@25.0.0/",
+"ag-grid-enterprise": "https://unpkg.com/ag-grid-enterprise@25.0.0/",
+"ag-grid-angular": "https://unpkg.com/ag-grid-angular@25.0.0/",
+"ag-grid-react": "https://unpkg.com/ag-grid-react@25.0.0/",
+"ag-grid-vue": "https://unpkg.com/ag-grid-vue@25.0.0/"
+
+};
+      var systemJsPaths = {
+"@ag-grid-community/all-modules": "https://unpkg.com/@ag-grid-community/all-modules@25.0.0/dist/ag-grid-community.cjs.js",
+"@ag-grid-community/client-side-row-model": "https://unpkg.com/@ag-grid-community/all-modules@25.0.0/dist/ag-grid-community.cjs.js",
+"@ag-grid-community/core": "https://unpkg.com/@ag-grid-community/all-modules@25.0.0/dist/ag-grid-community.cjs.js",
+"@ag-grid-community/csv-export": "https://unpkg.com/@ag-grid-community/all-modules@25.0.0/dist/ag-grid-community.cjs.js",
+"@ag-grid-community/infinite-row-model": "https://unpkg.com/@ag-grid-community/all-modules@25.0.0/dist/ag-grid-community.cjs.js"
+};
+
+var systemJsPaths = {
+  "@ag-grid-community/all-modules": "https://unpkg.com/@ag-grid-enterprise/all-modules@25.0.0/dist/ag-grid-enterprise.cjs.js",
+  "@ag-grid-community/client-side-row-model": "https://unpkg.com/@ag-grid-enterprise/all-modules@25.0.0/dist/ag-grid-enterprise.cjs.js",
+  "@ag-grid-community/core": "https://unpkg.com/@ag-grid-enterprise/all-modules@25.0.0/dist/ag-grid-enterprise.cjs.js",
+  "@ag-grid-community/csv-export": "https://unpkg.com/@ag-grid-enterprise/all-modules@25.0.0/dist/ag-grid-enterprise.cjs.js",
+  "@ag-grid-community/infinite-row-model": "https://unpkg.com/@ag-grid-enterprise/all-modules@25.0.0/dist/ag-grid-enterprise.cjs.js",
+  "@ag-grid-enterprise/all-modules": "https://unpkg.com/@ag-grid-enterprise/all-modules@25.0.0/dist/ag-grid-enterprise.cjs.js",
+  "@ag-grid-enterprise/charts": "https://unpkg.com/@ag-grid-enterprise/all-modules@25.0.0/dist/ag-grid-enterprise.cjs.js",
+  "@ag-grid-enterprise/clipboard": "https://unpkg.com/@ag-grid-enterprise/all-modules@25.0.0/dist/ag-grid-enterprise.cjs.js",
+  "@ag-grid-enterprise/column-tool-panel": "https://unpkg.com/@ag-grid-enterprise/all-modules@25.0.0/dist/ag-grid-enterprise.cjs.js",
+  "@ag-grid-enterprise/core": "https://unpkg.com/@ag-grid-enterprise/all-modules@25.0.0/dist/ag-grid-enterprise.cjs.js",
+  "@ag-grid-enterprise/date-time-cell-editor": "https://unpkg.com/@ag-grid-enterprise/all-modules@25.0.0/dist/ag-grid-enterprise.cjs.js",
+  "@ag-grid-enterprise/excel-export": "https://unpkg.com/@ag-grid-enterprise/all-modules@25.0.0/dist/ag-grid-enterprise.cjs.js",
+  "@ag-grid-enterprise/filter-tool-panel": "https://unpkg.com/@ag-grid-enterprise/all-modules@25.0.0/dist/ag-grid-enterprise.cjs.js",
+  "@ag-grid-enterprise/master-detail": "https://unpkg.com/@ag-grid-enterprise/all-modules@25.0.0/dist/ag-grid-enterprise.cjs.js",
+  "@ag-grid-enterprise/menu": "https://unpkg.com/@ag-grid-enterprise/all-modules@25.0.0/dist/ag-grid-enterprise.cjs.js",
+  "@ag-grid-enterprise/multi-filter": "https://unpkg.com/@ag-grid-enterprise/all-modules@25.0.0/dist/ag-grid-enterprise.cjs.js",
+  "@ag-grid-enterprise/range-selection": "https://unpkg.com/@ag-grid-enterprise/all-modules@25.0.0/dist/ag-grid-enterprise.cjs.js",
+  "@ag-grid-enterprise/rich-select": "https://unpkg.com/@ag-grid-enterprise/all-modules@25.0.0/dist/ag-grid-enterprise.cjs.js",
+  "@ag-grid-enterprise/row-grouping": "https://unpkg.com/@ag-grid-enterprise/all-modules@25.0.0/dist/ag-grid-enterprise.cjs.js",
+  "@ag-grid-enterprise/server-side-row-model": "https://unpkg.com/@ag-grid-enterprise/all-modules@25.0.0/dist/ag-grid-enterprise.cjs.js",
+  "@ag-grid-enterprise/set-filter": "https://unpkg.com/@ag-grid-enterprise/all-modules@25.0.0/dist/ag-grid-enterprise.cjs.js",
+  "@ag-grid-enterprise/side-bar": "https://unpkg.com/@ag-grid-enterprise/all-modules@25.0.0/dist/ag-grid-enterprise.cjs.js",
+  "@ag-grid-enterprise/status-bar": "https://unpkg.com/@ag-grid-enterprise/all-modules@25.0.0/dist/ag-grid-enterprise.cjs.js",
+  "@ag-grid-enterprise/viewport-row-model": "https://unpkg.com/@ag-grid-enterprise/all-modules@25.0.0/dist/ag-grid-enterprise.cjs.js"
+};</script>
+
+</script>
+<script src="https://unpkg.com/@ag-grid-enterprise/all-modules@25.0.0/dist/ag-grid-enterprise.min.js">
+</script>
+
+  </head>
+  <body>
+    <app-root></app-root>
+  </body>
+</html>

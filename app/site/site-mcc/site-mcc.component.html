@@ -1,0 +1,70 @@
+<section class="bodySection">
+  <mat-accordion>
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <b>Site Level Metrics</b>
+          <mat-progress-bar
+            class="example-margin"
+            color="primary"
+            mode="indeterminate"
+            *ngIf="showLoading"
+          >
+          </mat-progress-bar>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-grid-list cols="4" rowHeight="30vh">
+        <!-- <mat-grid-tile [colspan]="1"
+                       [rowspan]="1"
+                       [style.background]="blue">
+          <app-mcc-kpi [name]="CL03cQI" [level]="level"></app-mcc-kpi>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1"
+                       [rowspan]="1"
+                       [style.background]="blue">
+          <app-mcc-kpi [name]="CL04aTI" [level]="level"></app-mcc-kpi>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1"
+                       [rowspan]="1"
+                       [style.background]="blue">
+          <app-mcc-kpi [name]="CL04dQS" [level]="level"></app-mcc-kpi>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1"
+                       [rowspan]="1"
+                       [style.background]="blue">
+          <app-mcc-kpi [name]="CL05aQI" [level]="level"></app-mcc-kpi>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1"
+                       [rowspan]="1"
+                       [style.background]="blue">
+          <app-mcc-kpi [name]="CL05cCI" [level]="level"></app-mcc-kpi>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1"
+                       [rowspan]="1"
+                       [style.background]="blue">
+          <app-mcc-kpi [name]="CL05eTI" [level]="level"></app-mcc-kpi>
+        </mat-grid-tile>
+      
+        <mat-grid-tile [colspan]="1"
+                       [rowspan]="1"
+                       [style.background]="blue">
+          <app-mcc-kpi [name]="CL06aQI" [level]="level"></app-mcc-kpi> 
+
+        </mat-grid-tile>-->
+        <mat-grid-tile
+          [colspan]="1"
+          [rowspan]="1"
+          [style.background]="blue"
+          *ngFor="let item of mccPortfolio; let currentElementIndex = index"
+        >
+          <app-mcc-kpi
+            [id]="item.id"
+            [name]="item.name"
+            [desc]="item.desc"
+            [level]="level"
+          ></app-mcc-kpi>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </mat-expansion-panel>
+  </mat-accordion>
+</section>

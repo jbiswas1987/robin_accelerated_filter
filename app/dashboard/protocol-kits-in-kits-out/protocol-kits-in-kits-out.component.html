@@ -1,0 +1,37 @@
+<section class="ProtocolMetrics bodySection">
+    <mat-accordion>
+      <mat-expansion-panel [expanded]="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <b>Kits In/Out Performance</b>
+          </mat-panel-title>
+         
+        </mat-expansion-panel-header>
+        <div class="row">
+          <div class="col-sm-6">
+              <span style="color: black;margin-left: 20%;width: 50%">Kits-In</span>
+          </div>
+          <div class="col-sm-6">
+              <span style="color: black;margin-left: 70%">Kits-Out</span>
+          </div>
+        </div>
+        <mat-grid-list cols="6" style="height: 38vh;margin-top: 13px;" *ngIf = "!Isexpand_map">
+           
+            <mat-grid-tile [colspan]="3" style="height: 60vh" [rowspan]="siteSunRowspan" >
+              
+                <div echarts [options]="chartOption" (chartClick)="onpieselected($event)" style="width: 100%" (chartInit)="onChartInit($event)"></div> 
+              </mat-grid-tile>
+         
+          
+            <mat-grid-tile [colspan]="3" style="height: 60vh" [rowspan]="siteSunRowspan" >
+              
+                <div style="width: 100%" echarts [options]="chartOption"  (chartInit)="onChartInit($event)"></div> 
+              </mat-grid-tile>
+           
+            <!-- <div style="margin-left: 50%;" echarts [options]="chartOption"  (chartInit)="onChartInit($event)"></div>  -->
+           </mat-grid-list>          
+        
+        </mat-expansion-panel>
+      </mat-accordion>
+    </section>
+  

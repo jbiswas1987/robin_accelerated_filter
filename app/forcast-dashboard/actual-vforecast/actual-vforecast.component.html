@@ -1,0 +1,60 @@
+<section class="bodySection" >
+    <mat-accordion>
+      <mat-expansion-panel [expanded]="expanded" >
+        <mat-expansion-panel-header (click)="expand();">
+          <mat-panel-title>
+            <b>Historical Forecast vs. Actual</b>
+          </mat-panel-title>
+       
+        </mat-expansion-panel-header>
+  
+        <mat-progress-bar class="example-margin" color="primary" mode="indeterminate" *ngIf="showLoading">
+        </mat-progress-bar>
+        <mat-panel-title class="boder-area" *ngIf="!togglevalue" >
+            
+            <span style="font-size: 13px;cursor: pointer;margin-left: -10px;padding-left: 30px;" 
+            [ngStyle]="{'background-color':textdecorationKitsIN,'text-decoration': textdecorationKitsOut,'color' : textColorKitsOut,'text-underline-position': textUnderLinePosKitsOut,'text-decoration-color':textUnderLineColorCodeKitsOut,'text-decoration-thickness':underLineTicknessKitsOut,'text-underline-offset':textunderlineoffsetKitsOut}" 
+              (click)="kitsOutOverView();">Kits - Out</span>
+              <span style="padding-left: 10px"> </span>
+            <span style="font-size: 13px;
+            cursor: pointer;
+            margin-left: 30px;
+            padding-right: 20px;" 
+            [ngStyle]="{'background-color':textdecorationKitsIN,'text-decoration': textdecorationKitsIN,'color' : textColorKitsIN,'text-underline-position': textUnderLinePosKitsIN,'text-decoration-color':textUnderLineColorCodeKitsIN,'text-decoration-thickness':underLineTicknessKitsIN,'text-underline-offset':textunderlineoffsetKitsIN}"  
+            (click)="kitsINOverView();">Kits - In</span>
+            
+          
+        </mat-panel-title>
+       
+        <span style="margin-right: -5px;float:right;" class="tooltip" data-title="export" >
+           <img style="cursor: pointer;" [src]="download" (click)="downloadexcel()" >
+         </span>
+
+        <span style="margin-right: 20px;float:right;" class="tooltip" data-title="info" >
+          <img style="cursor: pointer;margin-left: 10px;"  [src]="info" (click)="infoDetails()" alt="">
+        </span>
+  
+        <!-- <span style="float:right;margin-right:-5px">
+            
+            <img style="cursor: pointer;" [src]="download" class="btn" (click)="downloadexcel()" alt=""> 
+            <img style="cursor: pointer;margin-left: 10px;" [src]="info" class="btn" (click)="infoDetails()" alt="">        
+        </span> -->
+        <hr class="new1">
+        <mat-table  #table [dataSource]="dataSource" style="margin-top: 10px;">
+          <ng-container [matColumnDef]="columnName" *ngFor="let columnName of displayedColumns">
+            <mat-header-cell class="text-style" *matHeaderCellDef style="color: #757575;font: 400 14px/20px Roboto,Helvetica Neue,sans-serif;font-size: 13px;
+            font-weight: bold">
+              {{columnName}} </mat-header-cell>
+            <mat-cell [ngStyle]="{'cursor':cursor}" class="text-style" *matCellDef="let element" [innerHTML]="element[columnName] | forecastVactual"></mat-cell>
+          </ng-container>
+          
+          <mat-header-row class="text-style" *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row class="text-style" *matRowDef="let row ; columns: displayedColumns;"></mat-row>
+        </mat-table>
+        <mat-paginator [pageSizeOptions]="[10]"></mat-paginator>
+        <!-- <app-exacta class="bodySection"></app-exacta> -->
+      </mat-expansion-panel>
+    </mat-accordion>
+  </section>
+  
+  

@@ -1,0 +1,31 @@
+<section class="ProtocolMetrics bodySection">
+  <mat-accordion>
+    <mat-expansion-panel [expanded]="false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <b>Protocol Performance</b>
+        </mat-panel-title>
+        <div class="protCount">
+          <span>Comparator Count : </span>{{ receivedCount }}
+        </div>
+      </mat-expansion-panel-header>
+      <mat-grid-list cols="4" rowHeight="70vh">
+        <mat-grid-tile [colspan]="2" [rowspan]="1">
+          <!-- [style.background]="blue" -->
+          <app-performance-chart
+            #pfsa
+            [chartname]="PFSA"
+            (countToEmit)="getMessage($event)"
+          ></app-performance-chart>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="2" [rowspan]="1">
+          <!-- [style.background]="blue" -->
+          <app-performance-chart
+            #pflpi
+            [chartname]="PFLPI"
+          ></app-performance-chart>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </mat-expansion-panel>
+  </mat-accordion>
+</section>

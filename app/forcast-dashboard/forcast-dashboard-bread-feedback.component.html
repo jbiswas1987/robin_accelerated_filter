@@ -1,0 +1,57 @@
+<ul class="breadcrumb" (click)="stopPropogate();">
+    <li><a (click) ="backButtonActivity();" style="cursor: pointer;">Home</a></li>
+    <li><a>Kits Forecasting</a></li>
+    <li></li>
+    <span style="float: right; font-size: 15px;margin-top: 9px;">
+      {{_externalSourceResponse}}
+     </span>
+  </ul>
+  <!-- <img *ngIf ="_responseType == 'true'"  style="cursor: pointer;height: 20px;margin-left: 75%;" [src]="cancel" (click)="revertDashBoard()" > -->
+  <div *ngIf ="_responseType == 'true'" style="margin-left: 12px;height: 30px;width: 75%" >
+      <!-- <div style="margin-left: 20px; width: 50%; height: 24px;;background-color: #005d78" > -->
+          <!-- <img style="cursor: pointer; height: 21px; position: relative; display: inline-flex;" [src]="cancel" (click)="revertHomeDashBoard()" > -->
+           <span style="font-size: 15px;padding: 10px; padding-top: 10px; margin-left: -10px;" *ngFor ='let type of selectedSponsor'>
+          <!-- <p-button (click)="revertHomeDashBoard(type.name)" icon="pi pi-times" label=""></p-button> -->
+          <!-- <img style="cursor: pointer; height: 18px; position: relative; display: inline-flex;" [src]="close" (click)="revertHomeDashBoard(type.name)" > -->
+        
+          <span style="cursor: pointer; background-color: #005d78;color: white;padding: 5px;margin-left: 3px;font-size: 12px;" (click)="revertHomeDashBoard(type.name)">{{type.name}}</span> 
+         </span> 
+        
+  </div>
+  
+  <mat-drawer-container (click)="stopPropogate();" (click)="drawer.close()"  style="overflow-x: hidden !important"
+   class="example-container dashbaod mat-drawer-content" autosize>
+    
+           <mat-drawer (click)="stopPropogate();" stopPropagation #drawer style="margin-top:1px;width: 23%;border: 1px solid #005d78;
+           background-color:#ffffff;border-radius: 0 13px;" class="example-sidenav" mode="side"
+            [opened]="IsDrawerState" position="end">
+             <div class="mat-drawer-inner-container">
+                <!-- <app-forecast-drawer></app-forecast-drawer> -->
+                <!-- <app-accelarate-filter></app-accelarate-filter> -->
+                <app-accelerated-trails-filter></app-accelerated-trails-filter>
+             </div>              
+            </mat-drawer>          
+            <div class="example-sidenav-content" stopPropagation (click)="stopPropogate();">
+              <button type="button" mat-button (click)="drawer.toggle()">
+               <span class="rotate">Filters</span>
+              </button>
+            </div>
+          
+             <app-overview-kits-in-kits-out (click)="stopPropogate();" class="bodySection"></app-overview-kits-in-kits-out>
+            
+            <app-actual-vforecast class="bodySection" (click)="stopPropogate();"></app-actual-vforecast>
+            <app-exacta class="bodySection" (click)="stopPropogate();"></app-exacta> 
+            <app-ko-demand-pareto-analysis class="bodySection" (click)="stopPropogate();"></app-ko-demand-pareto-analysis>
+            <app-kit-protocol-pareto-grid class="bodySection" (click)="stopPropogate();"></app-kit-protocol-pareto-grid>
+            <app-country-kits-inkits-out class="bodySection" (click)="stopPropogate();"></app-country-kits-inkits-out>
+            <app-protocol-kits-in-kits-out class="bodySection" (click)="stopPropogate();"></app-protocol-kits-in-kits-out> 
+          </mat-drawer-container>
+
+  <!-- <app-overview-kits-in-kits-out class="bodySection"></app-overview-kits-in-kits-out>
+  <app-actual-vforecast class="bodySection"></app-actual-vforecast>
+  <app-exacta class="bodySection"></app-exacta> 
+  <app-ko-demand-pareto-analysis class="bodySection"></app-ko-demand-pareto-analysis>
+  <app-kit-protocol-pareto-grid class="bodySection"></app-kit-protocol-pareto-grid>
+  <app-country-kits-inkits-out class="bodySection"></app-country-kits-inkits-out>
+  <app-protocol-kits-in-kits-out class="bodySection"></app-protocol-kits-in-kits-out>  -->
+  

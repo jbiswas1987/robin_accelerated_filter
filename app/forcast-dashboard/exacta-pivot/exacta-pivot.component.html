@@ -1,0 +1,19 @@
+<section class="bodySection">
+  <mat-accordion>
+    <mat-expansion-panel style="background-color: none;" [expanded]="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <!-- <b>Exacta</b> -->
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-progress-bar class="example-margin" color="primary" mode="indeterminate" style="width: 50%;" *ngIf="showLoading">
+      </mat-progress-bar>
+
+      <google-chart #chart style="margin-top: -100px" [title]="title" [type]="type" [data]="data" [columnNames]="columnNames" [options]="options"
+        [width]="1300" [height]="height">
+      </google-chart>
+
+
+    </mat-expansion-panel>
+  </mat-accordion>
+</section>

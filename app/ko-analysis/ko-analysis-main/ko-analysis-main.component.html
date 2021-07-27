@@ -1,0 +1,92 @@
+<section class="bodySection">
+    <!-- <div style="width: 17%;margin-left:40%">
+        <ng-multiselect-dropdown style="font-size: 14px;"  [placeholder]="'Select Date'" [data]="_data_multiSelect_filter" 
+        [disabled]="disabled" [settings]="dropdownSettings"  (onDeSelectAll)="onDeSelectAll($event)" (onSelectAll)="onSelectAll($event)"
+        (onSelect)="onItemSelect($event)" (onDeSelect)="OnItemDeSelect($event)">
+      </ng-multiselect-dropdown>
+    </div> -->
+  <mat-accordion>
+    <mat-expansion-panel style="background-color: none;" [expanded]="true">
+      <mat-expansion-panel-header>
+
+
+        <mat-panel-title>
+          <b>Demand Breakdown</b>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-progress-bar class="example-margin" color="primary" mode="indeterminate" style="width: 50%;" *ngIf="showLoading">
+      </mat-progress-bar>
+      
+      <mat-panel-title class="boder-area"  >
+          
+        <span style="font-size: 13px;cursor: pointer;margin-left: -10px;padding-left: 30px;" 
+        [ngStyle]="{'background-color':textdecorationKitsIN,'text-decoration': textDecorationAll,
+        'color' : textColorAll,'text-underline-position': textUnderLineAll,
+        'text-decoration-color':textUnderLineColorAll,'text-decoration-thickness':textthicknessAll,
+        'text-underline-offset':textoffsetAll}" 
+          (click)="DemandBreakDownAll();">All</span>
+        
+        
+        <span style="font-size: 13px;
+        cursor: pointer;
+        margin-left: 45px;
+        padding-right: 20px;" 
+        [ngStyle]="{'background-color':textdecorationKitsIN,'text-decoration': textDecorationCovid,
+        'color' : textColorCovid,'text-underline-position': textUnderLineCovid,
+        'text-decoration-color':textUnderLineColorCovid,'text-decoration-thickness':textthicknessCovid,
+        'text-underline-offset':textoffsetCovid}"  
+        (click)="DemandBreakDownCovid();">Covid</span>
+        
+        <span style="font-size: 13px;
+        cursor: pointer;
+        margin-left: 30px;
+        padding-right: 20px;" 
+        [ngStyle]="{'background-color':textdecorationKitsIN,'text-decoration': textDecorationNonCovid,
+        'color' : textColorNonCovid,'text-underline-position': textUnderLineNonCovid,'text-decoration-color':textUnderLineColorNonCovid,
+        'text-decoration-thickness':textthicknessNonCovid,'text-underline-offset':textoffsetNonCovid}"  
+        (click)="DemandBreakDownnonCovid();">Non-Covid</span>
+      
+    </mat-panel-title>
+
+   
+      <!-- <div class="example-header" style="margin-left: 40%;font-size: 14px; margin-top: 8px;">
+        <span>
+          Disease Area:
+          <select name="selected_area_desease" id="aantal" class="form-control" [(ngModel)]="selected_area_desease"
+            (change)="onPageAreaDeseasChanged();">
+            <option *ngFor="let option_are_deseases of area_filter" [value]="option_are_deseases">{{option_are_deseases}}</option>
+          </select>
+        </span>
+        </div> -->
+
+        <mat-grid-list cols="6" style="height: 38vh;margin-top: 13px;">
+           
+            <mat-grid-tile [colspan]="3" style="height: 60vh">
+              
+                <app-ko-analysis-stack style="width: 100%"> </app-ko-analysis-stack>
+              </mat-grid-tile>
+         
+          
+            <mat-grid-tile [colspan]="3" style="height: 60vh">
+              <!-- style="width: 100%" -->
+                <app-ko-analysis-line style="width: 95%" ></app-ko-analysis-line>
+              </mat-grid-tile>
+           
+            <!-- <div style="margin-left: 50%;" echarts [options]="chartOption"  (chartInit)="onChartInit($event)"></div>  -->
+           </mat-grid-list>    
+
+      <!-- <mat-grid-list cols="8" rowHeight="60vh" style="margin-top: 10px;">
+        <mat-grid-tile [colspan]="4" [rowspan]="1">
+
+          <app-ko-analysis-stack style="width: 100%"> </app-ko-analysis-stack>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="4" [rowspan]="1">
+
+          <app-ko-analysis-line style="width: 100%"></app-ko-analysis-line>
+        </mat-grid-tile>
+      </mat-grid-list> -->
+
+
+    </mat-expansion-panel>
+  </mat-accordion>
+</section>

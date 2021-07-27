@@ -1,0 +1,212 @@
+<!-- *ngIf="siteDetailsAvailable" -->
+
+<div class="tableContainer">
+  <mat-progress-bar
+  
+    color="primary"
+    mode="indeterminate"
+    *ngIf="showLoading"
+    style="top: 10px; margin-top: 10px;position: relative"
+  >
+  </mat-progress-bar>
+  
+  <q-grid>
+    <q-grid-columns>
+      <q-grid-column
+        [canFilter]="false"
+        key="details"
+        title="Link"
+        [label]="myLabel"
+        type="url"
+        can-resize="true"
+        width="100"
+        view-width="100"
+      >
+        <ng-template for="body" let-$cell class="column-resize">
+          <!-- <a (click)="getSiteId($cell.value)" class="ng-star-inserted"
+            ><u style="color: blue; cursor: pointer;padding-left: 10px">details</u>
+          </a> -->
+
+          <a
+            *ngIf="$cell.tr.model.sltInvestigatorId === '1'"
+            (click)="getSiteId($cell.value)"
+            class="ng-star-inserted"
+            ><u style="color: blue; cursor: pointer; padding-left: 10px"
+              >details</u
+            >
+          </a>
+          <a
+            *ngIf="$cell.tr.model.sltInvestigatorId === '0'"
+            tooltip="No investigator info available"
+            class="ng-star-inserted"
+            ><label style="padding-left: 10px">--</label>
+          </a>
+        </ng-template>
+      </q-grid-column>
+      <q-grid-column
+        key="siteScreenCount"
+        [canFilter]="true"
+        title="Screen Patient"
+        type="number"
+        class="column-resize"
+        can-resize="true"
+        width="130"
+        view-width="100"
+        style="padding-left: 10"
+      >
+      </q-grid-column>
+      <q-grid-column
+        key="siteEnrollmentCount"
+        title="Enrolled Patient"
+        type="number"
+        [canFilter]="true"
+        style="padding-left: 0px; color: #f00"
+        width="130"
+        view-width="100"
+        padding-left="10"
+      >
+      </q-grid-column>
+      <q-grid-column
+        key="siteScreenCycleTime"
+        [canFilter]="true"
+        title="Cycle Time"
+        type="number"
+        style="padding-left: 0px"
+      >
+      </q-grid-column>
+      <q-grid-column
+        key="siteLocationName"
+        [canFilter]="true"
+        title="Site Name"
+        type="string"
+        style="padding-left: 0px"
+      >
+      </q-grid-column>
+      <q-grid-column
+        key="siteCity"
+        [canFilter]="false"
+        title="City"
+        type="string"
+        style="padding-left: 0px"
+      >
+      </q-grid-column>
+      <q-grid-column
+        key="siteCountry"
+        [canFilter]="false"
+        title="Country"
+        type="string"
+        style="padding-left: 0px"
+      >
+      </q-grid-column>
+      <q-grid-column
+        key="protocolNumber"
+        [canFilter]="false"
+        title="Protocol Name"
+        type="string"
+      >
+      </q-grid-column>
+    </q-grid-columns>
+
+    <div class="q-grid-pager" style="align-content: flex-end">
+      <q-grid-toolbar style="font-size: x-small">
+        <ng-template for="bottom">
+          <!-- && !hideSuccessMessage -->
+          <span
+            *ngIf="syncDataStatus == 'true' " 
+            style="color: green; font-size: 15px"
+          >
+          <!-- [ngClass] ="FadeOutSuccessMsg()" -->
+          <strong  > Table is in sync.</strong>    
+           </span>
+           <!-- && !hideSuccessMessage -->
+          <span
+            *ngIf="syncDataStatus == 'false' "
+            style="color: red; font-size: 15px"
+            >
+            <!-- [ngClass] ="FadeOutSuccessMsg()"  -->
+            <strong> Table is not in sync.</strong>   
+            </span
+          >
+          <span
+            *ngIf="syncDataStatus == ''"
+            style="color: red; font-size: 15px"
+          ></span>
+          <label class="q-grid-pager-page-size hide-xs" style="margin-left: 20%"
+            >Rows per page :
+          </label>
+          <span>
+            <mat-select
+              #rowsPP
+              style="width: 10%"
+              aria-label="Page Size List"
+              [(value)]="rowsPerPage"
+              (selectionChange)="onSelectionChange($event)"
+            >
+              <mat-option
+                *ngFor="let rowsPerPageSize of rowsPerPageSizeList"
+                [value]="rowsPerPageSize"
+                >{{ rowsPerPageSize }}</mat-option
+              >
+            </mat-select></span
+          >
+
+          <label class="q-grid-pager-page"
+            >{{ pageNumber }} of {{ totalPages }}</label
+          >
+          <button
+            class="mat-icon-button q-grid-next-page"
+            (click)="getPrevRows()"
+            [disabled]="disableNavClick"
+            style="top: 8px"
+          >
+            <mat-icon class="q-grid-icon">keyboard_arrow_left</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu" class="q-grid-mat-menu">
+            <mat-card *ngIf="trigger.menuOpen">
+              <mat-form-field>
+                <input
+                  id="q-grid-menu-input"
+                  matInput
+                  type="number"
+                  #input
+                  (click)="$event.stopPropagation()"
+                  [max]="totalPages"
+                  [(ngModel)]="pageNumber"
+                  [min]="1"
+                  q-grid-focus
+                  (keydown)="keyDown($event)"
+                  (keyup.enter)="trigger.closeMenu()"
+                  placeholder="Go to page:"
+                />
+                <mat-hint align="end"
+                  >{{ pageNumber }} / {{ totalPages }}</mat-hint
+                >
+              </mat-form-field>
+            </mat-card>
+          </mat-menu>
+
+          <button
+            #trigger="matMenuTrigger"
+            [matMenuTriggerFor]="menu"
+            tabindex="-1"
+            mat-button
+            (menuClosed)="menuClosedEvent()"
+            (click)="pageNumber = pageNumber"
+            [disabled]="disableNavClick"
+            class="q-grid-pager-target-trigger mat-icon-button"
+          >
+            <mat-icon class="q-grid-icon-class">location_searching</mat-icon>
+          </button>
+          <button
+            class="mat-icon-button q-grid-next-page"
+            (click)="getNextRows()"
+            [disabled]="disableNavClick"
+            style="top: 8px"
+          >
+            <mat-icon class="q-grid-icon">keyboard_arrow_right</mat-icon>
+          </button>
+        </ng-template>
+      </q-grid-toolbar>
+    </div>
+  </q-grid>
+</div>

@@ -1,0 +1,31 @@
+<section class="bodySection">
+  <mat-accordion>
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <b>Site Count Breakdown</b>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-progress-bar
+        class="example-margin"
+        color="primary"
+        mode="indeterminate"
+        *ngIf="showLoading"
+      >
+      </mat-progress-bar>
+      <span style="float:right;margin-right:-5px">
+            
+          <!-- <img style="cursor: pointer;" [src]="download" class="btn" (click)="downloadexcel()" alt="">  -->
+          <img style="cursor: pointer;margin-left: 10px;" [src]="info" class="btn" (click)="infoDetails()" alt="">        
+      </span>
+      <div style="margin-top:35px;"
+        echarts
+        [options]="chartOptionTA"
+        class="demo-chart"
+        (chartInit)="onChartInit($event)"
+        [loading]="true"
+      ></div>
+      <!-- [theme]="macarons" -->
+    </mat-expansion-panel>
+  </mat-accordion>
+</section>

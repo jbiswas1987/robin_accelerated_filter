@@ -1,0 +1,237 @@
+<section class="ProtocolInfo bodySection">
+  <mat-progress-bar
+    class="progress-bar-margin"
+    color="primary"
+    mode="indeterminate"
+    *ngIf="showLoading"
+  >
+  </mat-progress-bar>
+  <mat-accordion style="margin-bottom: 2px">
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <b class="heading">Investigator Information</b>
+        </mat-panel-title>
+        <mat-panel-description> </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <mat-grid-list cols="3" rowHeight="20px" style="margin-bottom: 2px">
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <!-- [style.background]="blue" -->
+          <div style="height: 100%; width: 100%">
+            <mat-grid-list cols="4">
+              <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <!-- [style.background]="blue" -->
+                <span class="rowHeading">First Name:</span>
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="3" [rowspan]="1">
+                <!-- [style.background]="blue" -->
+                <span
+                  matTooltip="{{ investigator?.firstname }}"
+                  matTooltipPosition="above"
+                >
+                  {{ investigator?.firstname }}</span
+                >
+              </mat-grid-tile>
+            </mat-grid-list>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <!-- [style.background]="blue" -->
+          <div style="height: 100%; width: 100%">
+            <mat-grid-list cols="4">
+              <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <!-- [style.background]="blue" -->
+                <span class="rowHeading">Last Name:</span>
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="3" [rowspan]="1">
+                <!-- [style.background]="blue" -->
+                <span
+                  matTooltip="{{ investigator?.lastname }}"
+                  matTooltipPosition="above"
+                  >{{ investigator?.lastname }}</span
+                >
+              </mat-grid-tile>
+            </mat-grid-list>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <!-- [style.background]="blue" -->
+          <div style="height: 100%; width: 100%">
+            <mat-grid-list cols="4">
+              <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <!-- [style.background]="blue" -->
+                <span class="rowHeading">Speciality:</span>
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="3" [rowspan]="1">
+                <!-- [style.background]="blue" -->
+                <span
+                  matTooltip="{{ investigator?.specialty }}"
+                  matTooltipPosition="above"
+                  >{{ investigator?.specialty }}</span
+                >
+              </mat-grid-tile>
+            </mat-grid-list>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <!-- [style.background]="blue" -->
+          <div style="height: 100%; width: 100%">
+            <mat-grid-list cols="4">
+              <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <!-- [style.background]="blue" -->
+                <span class="rowHeading">Institution:</span>
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="3" [rowspan]="1">
+                <!-- [style.background]="blue" -->
+                <!-- style="line-height: 9px; font-size: 9px" -->
+                <span
+                  matTooltip="{{ investigator?.institution }}"
+                  matTooltipPosition="above"
+                  [matTooltipClass]="'tpResize'"
+                  >{{ investigator?.institution }}</span
+                >
+              </mat-grid-tile>
+            </mat-grid-list>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <!-- [style.background]="blue" -->
+          <div style="height: 100%; width: 100%">
+            <mat-grid-list cols="4">
+              <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <!-- [style.background]="blue" -->
+                <span class="rowHeading">Street:</span>
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="3" [rowspan]="1">
+                <!-- [style.background]="blue" -->
+                <span
+                  matTooltip="{{ investigator?.street }}"
+                  matTooltipPosition="above"
+                  >{{ investigator?.street }}</span
+                >
+              </mat-grid-tile>
+            </mat-grid-list>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <!-- [style.background]="blue" -->
+          <div style="height: 100%; width: 100%">
+            <mat-grid-list cols="4">
+              <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <!-- [style.background]="blue" -->
+                <span class="rowHeading">City:</span>
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="3" [rowspan]="1">
+                <!-- [style.background]="blue" -->
+                <span
+                  matTooltip="{{ investigator?.city }}"
+                  matTooltipPosition="above"
+                  >{{ investigator?.city }}</span
+                >
+              </mat-grid-tile>
+            </mat-grid-list>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <!-- [style.background]="blue" -->
+          <div style="height: 100%; width: 100%">
+            <mat-grid-list cols="4">
+              <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <!-- [style.background]="blue" -->
+                <span class="rowHeading">State:</span>
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="3" [rowspan]="1">
+                <!-- [style.background]="blue" -->
+                <span
+                  matTooltip="{{ investigator?.state }}"
+                  matTooltipPosition="above"
+                  >{{ investigator?.state }}</span
+                >
+              </mat-grid-tile>
+            </mat-grid-list>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <!-- [style.background]="blue" -->
+          <div style="height: 100%; width: 100%">
+            <mat-grid-list cols="4">
+              <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <!-- [style.background]="blue" -->
+                <span class="rowHeading">Country:</span>
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="3" [rowspan]="1">
+                <!-- [style.background]="blue" -->
+                <span
+                  matTooltip="{{ investigator?.country }}"
+                  matTooltipPosition="above"
+                  >{{ investigator?.country }}</span
+                >
+              </mat-grid-tile>
+            </mat-grid-list>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <!-- [style.background]="blue" -->
+          <div style="height: 100%; width: 100%">
+            <mat-grid-list cols="4">
+              <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <!-- [style.background]="blue" -->
+                <span class="rowHeading">Zip:</span>
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="3" [rowspan]="1">
+                <!-- [style.background]="blue" -->
+                <span
+                  matTooltip="{{ investigator?.zip }}"
+                  matTooltipPosition="above"
+                  >{{ investigator?.zip }}</span
+                >
+              </mat-grid-tile>
+            </mat-grid-list>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <!-- [style.background]="blue" -->
+          <div style="height: 100%; width: 100%">
+            <mat-grid-list cols="4">
+              <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <!-- [style.background]="blue" -->
+                <span class="rowHeading">Email:</span>
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="3" [rowspan]="1">
+                <!-- [style.background]="blue" -->
+                <span
+                  matTooltip="{{ investigator?.email }}"
+                  matTooltipPosition="above"
+                  >{{ investigator?.email }}</span
+                >
+              </mat-grid-tile>
+            </mat-grid-list>
+          </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <!-- [style.background]="blue" -->
+          <div style="height: 100%; width: 100%">
+            <mat-grid-list cols="4">
+              <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <!-- [style.background]="blue" -->
+                <span class="rowHeading">Phone:</span>
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="3" [rowspan]="1">
+                <!-- [style.background]="blue" -->
+                <span
+                  matTooltip="{{ investigator?.phone }}"
+                  matTooltipPosition="above"
+                  >{{ investigator?.phone }}</span
+                >
+              </mat-grid-tile>
+            </mat-grid-list>
+          </div>
+        </mat-grid-tile>
+
+        <br />
+      </mat-grid-list>
+    </mat-expansion-panel>
+  </mat-accordion>
+</section>

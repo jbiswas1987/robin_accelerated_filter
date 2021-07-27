@@ -1,0 +1,117 @@
+<!-- style="width: 100%;height: 70%;margin-top: -30px;" -->
+
+<div class="background" style="width: 100%;height: 63%;margin-top: 5px;">
+            <!-- <img [src]="landingpageleft"  style="width: 25%;height: 100%;"> -->
+            <img [src]="landingpage" style="width: 100%;height: 100%;">
+     
+      <!-- <img [src]="landingpage" style="width: 100%;height: 100%;"> -->
+</div>
+   
+
+<div class="container" style="width: 100%;height: 30%;background-color: #FFFFFF;margin-top:-1px;">
+            <!-- onmouseout="imgChange('performace')" -->
+                      <div class="block filter" (mouseenter)="imgChangeover('performace')" (mouseleave) ="mouseLeave('performace')">
+                              <!-- <img (click)="performanceDashBoard();" class="next" [src]="skip"/> -->
+                        <img (click)="performanceDashBoardinfo();" class="info" [src]="info"/>
+                        <img class="imgSize"  (click)="performanceDashBoard();" [src]="performanceImg">
+                        <!-- <img class="image hover" src="image-hover.jpg" /> -->
+
+                        <h5 class="text-header" (click)="performanceDashBoard();">Performance</h5>
+                        <p (click)="performanceDashBoard();" class="text_char">For analyzing the performance through different lenses, 
+                              the key metrics along with the interpretation are visually reported in this dashboard.</p>
+                        
+                        </div>    
+                        <div class="block" (mouseenter)="imgChangeover('Forecasting')" (mouseleave) ="mouseLeave('Forecasting')">
+                        <!-- <img (click)="forCastingDashBoard();" class="next" [src]="skip"/> -->
+                        <img (click)="forCastingDashBoardinfo();" class="info" [src]="info"/>
+                        <img (click)="forCastingDashBoard();" class="imgSize filter" [src]="forecastingImg">
+                        <h5 class="text-header" (click)="forCastingDashBoard();">Forecasting</h5>
+                        <p (click)="forCastingDashBoard();" class="text_char">Trends of forecasts and historical data highlight the past and future peaks and troughs of the drivers of revenue with various options to slice and dice the data.</p>
+                        </div>
+                        <div class="block" (mouseenter)="imgChangeover('KitDemand')" (mouseleave) ="mouseLeave('KitDemand')">
+                        <!-- <img (click)="koAnalysis();" class="next" [src]="skip"/> -->
+                        <img class="imgSize sepia brightness contrast" (click)="koAnalysis();" [src]="kodemandiconImg">
+                        <img (click)="koAnalysisinfo();" class="info" [src]="info"/>
+                        <h5 class="text-header" (click)="koAnalysis();">Kit Demand Analysis</h5>
+                        <p (click)="koAnalysis();" class="text_char">This analysis provides trends of different aspects of the demand drivers in the past to provide actionable insights for the upcoming future.</p>
+                        </div>
+                        <div class="block" (mouseenter)="imgChangeover('KitForecast')" (mouseleave) ="mouseLeave('KitForecast')">
+                        <!-- <img (click)="koSupplier();" class="next" [src]="skip"/> -->
+                        <img (click)="koSupplierinfo();" class="info" [src]="info"/>
+                        <img (click)="koSupplier();"  class="imgSize" [src]="kosuppliericonImg">
+                        <h5 class="text-header" (click)="koSupplier();" >Kit Components Forecast</h5>
+                        <p (click)="koSupplier();"  class="text_char">Product level forecast and
+                        historical data highlight the past and future peaks for each product and the analysis of the drivers of demand.</p>
+                        </div>
+</div>
+
+<!-- <div style="width: 100%;height: 25%;background-color: #FFFFFF;overflow: hidden;margin-top:-1px;padding-left: 2px;padding-right: 2px;">
+      <div class="column container " style="border: 1px solid;cursor:pointer" (click)="performanceDashBoard();">
+            <img class="image" [src]="performace" style=" width: 20%;height: 22%;margin-top: 1px;margin-left: 35%">
+            <div class="image" style="font-size: 14px;margin-top: 5px;margin-left: 35%;font-weight:bold">Performance</div>
+            <div class="image" style="font-size: 12px;margin-top: 10px;margin-left:4px">For analyzing the performance
+                  through different lenses the key metrics are visually reported in this dashboard.
+                  
+            </div>
+            <div class="middle">
+                  <img class="image_hover" [src]="performace" style=" width: 15%;
+                  height: 8%;
+                  margin-top: 100px;
+                  margin-left: 35%;">
+                  <div class="text">Performance</div>
+                  
+            </div>
+      </div>
+      <div class="column container " style="border: 1px solid;cursor:pointer" (click)="forCastingDashBoard();">
+            <img class="image" [src]="forecasting " style=" width: 20%;height: 22%;margin-top: 1px;margin-left: 35%">
+            <div class="image" style="font-size: 14px;margin-top: 5px;margin-left: 35%;font-weight:bold">Forecasting</div>
+            <div class="image" style="font-size: 12px;margin-top: 10px;margin-left:4px">Trends of forecasts and
+                  historical data highlight the past and future peaks and troughs of the drivers of revenue.
+            
+            </div>
+            <div class="middle">
+                        <img class="image_hover" [src]="forecasting" style=" width: 15%;
+                        height: 8%;
+                        margin-top: 100px;
+                        margin-left: 35%;">
+                        <div class="text_1">Forecasting</div>
+                        
+                  </div>
+           
+      </div>
+      <div class="column container " style="border: 1px solid;cursor:pointer" (click)="koAnalysis();">
+            <img class="image" [src]="ko_demand_icon" style=" width: 20%;height: 22%;margin-top: 1px;margin-left: 35%">
+            <div class="image" style="font-size: 14px;margin-top: 5px;margin-left: 15%;font-weight:bold">Kit Demand
+                  Analysis: Historical Data</div>
+            <div class="image" style="font-size: 12px;margin-top: 10px;margin-left:4px">Trends of forecasts and
+                  historical data highlight the past and future peaks and troughs of the drivers of revenue.
+                 
+            </div>
+            <div class="middle">
+                        <img class="image_hover" [src]="ko_demand_icon" style="width: 15%;
+                        height: 8%;
+                        margin-top: 100px;
+                        margin-left: 36%;">
+                        <div class="text">Kit Demand Analysis</div>
+                        
+            </div>
+      </div>
+      <div class="column container" style="border: 1px solid;cursor:pointer" (click)="koSupplier();">
+            <img class="image" [src]="ko_supplier_icon" style=" width: 20%;height: 22%;margin-top: 1px;margin-left: 35%">
+            <div class="image" style="font-size: 14px;margin-top: 5px;margin-left: 20%;font-weight:bold">Kit Components
+                  Forecast</div>
+            <div class="image" style="font-size: 12px;margin-top: 10px;margin-left:4px">Product level forecast and
+                  historical data highlight the past and future peaks for each product and the analysis of the drivers
+                  of demand.
+                
+            </div>
+            <div class="middle">
+                        <img class="image_hover" [src]="ko_supplier_icon" style="width: 15%;
+                        height: 8%;
+                        margin-top: 100px;
+                        margin-left: 40%;">
+                        <div class="text">Kit Components Forecast</div>
+                        
+            </div>
+      </div>
+</div> -->

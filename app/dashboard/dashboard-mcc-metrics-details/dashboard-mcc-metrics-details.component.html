@@ -1,0 +1,44 @@
+<!-- <a
+  routerLink="../../dashboard"
+  *ngIf="gobackFlag; else elseBlock"
+  class="dashboardLink"
+  (click)="backButtonActivity()"
+>
+  Back to Dashboard4
+</a> -->
+
+<ul class="breadcrumb" *ngIf="gobackFlag; else elseBlock">
+  <li><a (click) ="backButtonHome();" style="cursor: pointer;">Home</a></li>
+  <li><a routerLink="../../dashboard" style="cursor: pointer;">Protocol Dashboard</a></li>
+  <li><a>Protocol Scatter</a></li>
+  <li></li>
+</ul>
+
+<ng-template #elseBlock>
+  <mat-toolbar class="header">
+    <span class="colorWithSize brandAndLogoutAlign">
+      <img [src]="logo" class="image-width" />
+    </span>
+    <section class="sponsor-spacer">
+      <span class="colorWithSize">Sponsor : </span>
+      <label class="siteSponsor">{{ _qryStrSponsor }}</label>
+    </section>
+    <span class="example-spacer"></span>
+  </mat-toolbar>
+  <!-- <a (click)="navigate()" class="dashboardLink back-to-protocol">
+    Back to Protocol5
+  </a> -->
+  <ul class="breadcrumb">
+    <li><a (click) ="navigate();" style="cursor: pointer;">Protocol Information</a></li>
+    <!-- <li><a routerLink="../../dashboard" style="cursor: pointer;">Protocol Dashboard</a></li> -->
+    <li><a>Site Scatter</a></li>
+    <li></li>
+  </ul>
+
+  <!-- <ul class="breadcrumb" *ngIf="gobackFlag; else elseBlock">
+    <li><a (click) ="navigate();" style="cursor: pointer;">Protocol Information</a></li>
+    <li>Protocol Scatter</li>
+   </ul> -->
+
+</ng-template>
+<app-mcc></app-mcc>

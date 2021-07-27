@@ -1,0 +1,39 @@
+<ul class="breadcrumb">
+    <li><a (click) ="backButtonActivity();" style="cursor: pointer;">Home</a></li>
+    <li><a>Kits-Out Demand</a></li>
+    <li></li>
+    <span style="float: right; font-size: 17px; margin-top: 9px; font-weight: bold;">
+     {{messageResponse}}
+    </span>
+    <!-- <span style="margin-left:22%;top: 8px !important;position: relative;">
+      <span style="font-size: 16px;">Sponsor Name : </span>
+      <select style="margin-left:7px;font-size: 13px;" name="sponsorSelect" id="aantal" class="form-control" [(ngModel)]="sponsorSelect" (change)="onsponsornameChanged();">
+        <option *ngFor="let option of sponsorName" [value]="option">{{option}}</option>
+      </select>
+    </span> -->
+
+  </ul>
+
+  
+
+  <app-ko-analysis-main class="bodySection"></app-ko-analysis-main>
+  <app-ko-demand-main class="bodySection"></app-ko-demand-main>
+  <!-- <mat-drawer-container class="example-container dashbaod" style="overflow-x: hidden;" autosize>
+
+    <mat-drawer #drawer style="margin-top:1px;border:  3px solid #005d78;overflow-x: hidden;" class="example-sidenav" mode="side"
+    opened="false" position="end">
+     
+      <app-ko-analysis-drawer *ngIf ="isBooleanSideDrawer == 'true'" ></app-ko-analysis-drawer>
+   
+    </mat-drawer>
+  
+    <div class="example-sidenav-content">
+      <button type="button" mat-button  (click)="drawer.toggle()">
+         <span class="rotate">Filters</span>
+      </button>
+    </div>
+    <app-ko-analysis-main class="bodySection"></app-ko-analysis-main>
+    <app-ko-demand-main class="bodySection"></app-ko-demand-main>
+  </mat-drawer-container> -->
+  <!-- <app-ko-analysis-main class="bodySection"></app-ko-analysis-main>
+  <app-ko-demand-main class="bodySection"></app-ko-demand-main> -->

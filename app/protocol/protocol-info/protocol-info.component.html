@@ -1,0 +1,176 @@
+<section class="ProtocolInfo bodySection">
+  <mat-progress-bar
+    class="progress-bar-margin"
+    color="primary"
+    mode="indeterminate"
+    *ngIf="showLoading"
+  >
+  </mat-progress-bar>
+  <mat-accordion style="margin-bottom: 2px">
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <b class="heading">Protocol Information</b>
+        </mat-panel-title>
+        <mat-panel-description> </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <mat-grid-list cols="3" rowHeight="20px" style="margin-bottom: 2px">
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <!-- [style.background]="blue" -->
+          <div style="height: 100%; width: 100%">
+            <mat-grid-list cols="4">
+              <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <!-- [style.background]="blue" -->
+                <span class="rowHeading">Protocol:</span>
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="3" [rowspan]="1">
+                <!-- [style.background]="blue" -->
+                <span> {{ protocol?.protocolNumber }}</span>
+              </mat-grid-tile>
+            </mat-grid-list>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <!-- [style.background]="blue" -->
+          <div style="height: 100%; width: 100%">
+            <mat-grid-list cols="4">
+              <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <!-- [style.background]="blue" -->
+                <span class="rowHeading">Theraputic Area:</span>
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="3" [rowspan]="1">
+                <!-- [style.background]="blue" -->
+                <span>{{ protocol?.theraputicArea }}</span>
+              </mat-grid-tile>
+            </mat-grid-list>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <!-- [style.background]="blue" -->
+          <div style="height: 100%; width: 100%">
+            <mat-grid-list cols="4">
+              <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <!-- [style.background]="blue" -->
+                <span class="rowHeading">Indication:</span>
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="3" [rowspan]="1">
+                <!-- [style.background]="blue" -->
+                <span>{{ protocol?.clinicalIndication }}</span>
+              </mat-grid-tile>
+            </mat-grid-list>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <!-- [style.background]="blue" -->
+          <div style="height: 100%; width: 100%">
+            <mat-grid-list cols="4">
+              <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <!-- [style.background]="blue" -->
+                <span class="rowHeading">Phase:</span>
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="3" [rowspan]="1">
+                <!-- [style.background]="blue" -->
+                <span>{{ protocol?.phase }}</span>
+              </mat-grid-tile>
+            </mat-grid-list>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <!-- [style.background]="blue" -->
+          <div style="height: 100%; width: 100%">
+            <mat-grid-list cols="4">
+              <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <!-- [style.background]="blue" -->
+                <span class="rowHeading">CTG ID:</span>
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="3" [rowspan]="1">
+                <!-- [style.background]="blue" -->
+                <span>{{ protocol?.nCTID }}</span>
+              </mat-grid-tile>
+            </mat-grid-list>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <!-- [style.background]="blue" -->
+          <div style="height: 100%; width: 100%">
+            <mat-grid-list cols="4">
+              <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <!-- [style.background]="blue" -->
+                <span class="rowHeading">PF Date:</span>
+                <!-- <button
+                  style="margin-top: -8px"
+                  title="Modifier"
+                  fxFlex="10"
+                  mat-icon-button
+                  color="basic"
+                  (click)="visible = !visible"
+                >
+                  <mat-icon
+                    style="color: #3c5d80; cursor: pointer; font-size: 20px"
+                    >edit</mat-icon
+                  >
+                </button> -->
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="3" [rowspan]="1">
+                <!-- [style.background]="blue" style="width: 95%; height: 100%; background-color: lightgrey"-->
+
+                <div style="width: 95%; height: 100%">
+                  {{ protocol?.protocolFinalizationDate | date: "mediumDate" }}
+                </div>
+              </mat-grid-tile>
+            </mat-grid-list>
+          </div>
+        </mat-grid-tile>
+        <!-- <mat-grid-tile [colspan]="1" [rowspan]="1">
+          
+          <div style="height: 100%; width: 100%">
+            <mat-grid-list cols="4">
+              <mat-grid-tile [colspan]="1" [rowspan]="1">
+              
+                <span class="rowHeading">Site Count:</span>
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="3" [rowspan]="1">
+               
+                <span>{{ protocol?.numberOfSites }}</span>
+              </mat-grid-tile>
+            </mat-grid-list>
+          </div>
+        </mat-grid-tile> -->
+        <!-- <mat-grid-tile [colspan]="1" [rowspan]="1">
+         
+          <div style="height: 100%; width: 100%">
+            <mat-grid-list cols="4">
+              <mat-grid-tile [colspan]="1" [rowspan]="1">
+               
+                <span class="rowHeading">Enrollment Count:</span>
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="3" [rowspan]="1">
+               
+                <span>{{ protocol?.numberofPatientsEnrolled }}</span>
+              </mat-grid-tile>
+            </mat-grid-list>
+          </div>
+        </mat-grid-tile> -->
+        <!-- <mat-grid-tile [colspan]="1" [rowspan]="2">
+         <div style="height: 100%; width: 100%">
+            <mat-grid-list cols="4">
+              <mat-grid-tile [colspan]="1" [rowspan]="1">
+             
+                <span class="rowHeading">Enrollment Code: </span>
+               
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="3" [rowspan]="1">
+                
+                <div style="width: 95%; height: 90%">
+                  {{ protocol?.enrollmentVisitCode }}
+                </div>
+              </mat-grid-tile>
+            </mat-grid-list>
+          </div>
+        </mat-grid-tile> -->
+        <br />
+      </mat-grid-list>
+    </mat-expansion-panel>
+  </mat-accordion>
+</section>

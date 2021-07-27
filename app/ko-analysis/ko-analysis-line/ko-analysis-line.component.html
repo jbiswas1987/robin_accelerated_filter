@@ -1,0 +1,30 @@
+<section class="bodySection">
+    <mat-accordion>
+      <mat-expansion-panel style="background-color: none;" [expanded]="true">       
+        <mat-progress-bar
+        class="example-margin"
+        color="primary"
+        mode="indeterminate" style="width: 50%;" *ngIf ="showLoading">
+      </mat-progress-bar >  
+      <!-- <span style="float:right;">
+        <img style="cursor: pointer;margin-right: 10px" [src]="download" class="btn" (click)="downloadexcel()" alt="">
+          <img style="cursor: pointer;" [src]="info" class="btn" (click)="infoDetails()" alt="">
+       
+       </span> -->
+       <span style="margin-right: -5px;float:right;" class="tooltip" data-title="export" >
+          
+        <img style="cursor: pointer;" [src]="download" (click)="downloadexcel()" >
+        <!-- <img style="cursor: pointer;margin-left: 10px;"  [src]="info" (click)="infoDetails()" alt=""> -->
+       </span>
+
+      <span style="margin-right: 20px;float:right;" class="tooltip" data-title="info" >
+      <img style="cursor: pointer;margin-left: 10px;"  [src]="info" (click)="infoDetails()" alt="">
+     </span>
+       <!-- <hr class="new1" style="margin-top: 25px;"> -->
+       <div class="graphContainer" style="margin-top: 30px;">
+      <div style="margin-top: 10px;" echarts [options]="chartOption" [theme]="macarons" (chartClick)="onpieselected($event)" class="performance-chart"
+      (chartInit)="onChartInits($event)"></div>
+      </div>
+    </mat-expansion-panel>
+    </mat-accordion>
+  </section>

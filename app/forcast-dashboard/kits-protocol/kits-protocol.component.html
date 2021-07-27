@@ -1,0 +1,61 @@
+
+
+
+<section class="bodySection">
+  <mat-accordion>
+    <mat-expansion-panel style="background-color: none;" [expanded]="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <b>Protocol List</b>         
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-progress-bar
+      class="example-margin"
+      color="primary"
+      mode="indeterminate" style="width: 50%;" *ngIf ="showLoading">
+    </mat-progress-bar >  
+
+    <span style="float:right;">
+        <img style="cursor: pointer;" [src]="download" class="btn" (click)="downloadexcel()" alt="">     
+    </span>
+
+    <div class="example-header">
+        Page Size:
+        <select name="selectedQuantity" id="aantal" class="form-control" [(ngModel)]="selectedQuantity" (change)="onPageSizeChanged();">
+          <option *ngFor="let option of options" [value]="option">{{option}}</option>
+        </select>
+      </div> 
+    <div class="example-wrapper">
+        
+      <ag-grid-angular
+        #agGrid
+        style="width: 100%; height:540px;font-size: 13px"
+        id="myGrid"
+        class="ag-theme-balham"
+        [modules]="modules"
+        [columnDefs]="columnDefs"
+        [defaultColDef]="defaultColDef"
+        [sideBar]="sideBar"
+        [rowGroupPanelShow]="rowGroupPanelShow"
+        [pivotPanelShow]="pivotPanelShow"
+        [debug]="true"
+        [rowSelection]="rowSelection"
+        [pagination]="true"
+        [rowData]="rowData"
+        [animateRows]="true"
+        (gridReady)="onGridReady($event)"
+        [rowSelection]="selectionMode"
+        
+        [paginationPageSize]="paginationPageSize"
+        [paginationNumberFormatter]="paginationNumberFormatter"
+        (cellClicked)="onRowClick($event)"
+
+      ></ag-grid-angular>
+    </div> 
+     
+    
+    </mat-expansion-panel>
+  </mat-accordion>
+</section>
+
+

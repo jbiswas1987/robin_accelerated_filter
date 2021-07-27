@@ -1,0 +1,42 @@
+<section class="bodySection">
+  <mat-accordion>
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <b>Portfolio Level Metrics</b>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <span style="margin-left:590px;">
+          <img style="cursor: pointer;" [src]="info" class="btn" (click)="info_dispay_protocol_left()" alt="">        
+     </span>
+     <span style="float:right;margin-right:-5px">
+        <img style="cursor: pointer;" [src]="info" class="btn" (click)="info_dispay_protocol_right()" alt="">        
+   </span>
+      <mat-grid-list cols="4" rowHeight="20vh">
+          
+        <mat-grid-tile [colspan]="2" [rowspan]="3">
+          <!-- [style.background]="blue" -->
+          <!-- <mat-progress-bar class="example-margin"
+                            color="primary"
+                            mode="indeterminate"
+                            *ngIf="showLoading">
+          </mat-progress-bar> -->
+          <app-all-kpi></app-all-kpi>
+        </mat-grid-tile>
+       
+
+        <mat-grid-tile
+          [colspan]="1"
+          [rowspan]="1"
+          [style.background]="blue"
+          *ngFor="let item of mccPortfolio; let currentElementIndex = index">
+          <app-mcc-kpi
+            [id]="item.id"
+            [name]="item.name"
+            [desc]="item.desc"
+          ></app-mcc-kpi>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </mat-expansion-panel>
+  </mat-accordion>
+</section>

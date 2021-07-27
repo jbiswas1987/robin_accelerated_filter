@@ -1,0 +1,16 @@
+<mat-progress-bar class="example-margin"
+                  color="primary"
+                  mode="indeterminate"
+                  *ngIf="showLoading">
+</mat-progress-bar>
+<div class="graphContainer visitchartcontainer">
+  <b>Visit Details</b>
+  
+  <div echarts [options]="chartOptionVisits" [ngClass]="{
+                                    'visitchartLong': (chartType=='Long'),
+                                    'visitchartMedium': (chartType=='Medium'),
+                                    'visitchartShort': (chartType=='Short'),
+                                    'visitchartExtraLong': (chartType=='ExtraLong')
+                                    }"
+       class="demo-chart visitchart" (chartInit)="onChartInit($event)"></div>
+</div>

@@ -1,0 +1,34 @@
+<div class="row" *ngIf="mcclevel === 'p'; else elseBlock">
+  <div
+    class="col-sm-6 demo-chart"
+    echarts
+    [options]="option"
+    [theme]="macarons"
+    (chartInit)="onChartInit($event)"
+    [loading]="true"
+    (chartClick)="onpieselected($event)"
+  ></div>
+
+  <!-- <span  style="top: -50px;margin-left: 50%;">Comparator</span> -->
+  <div
+    class="col-sm-6 demo-chart-comparator"
+    echarts
+    [options]="option_comparesion"
+    [theme]="macarons"
+    (chartInit)="onChartInit_comparesion($event)"
+    [loading]="true"
+  ></div>
+</div>
+<ng-template #elseBlock>
+  <div
+    style="margin: 10px"
+    class="col-sm-6"
+    echarts
+    [options]="option"
+    class="demo-chart"
+    [theme]="macarons"
+    (chartInit)="onChartInit($event)"
+    [loading]="true"
+    (chartClick)="onpieselected($event)"
+  ></div>
+</ng-template>

@@ -1,0 +1,24 @@
+
+<section class="bodySection">
+    <mat-accordion>
+      <mat-expansion-panel style="background-color: none;" [expanded]="true">
+        
+        <mat-progress-bar
+        class="example-margin"
+        color="primary"
+        mode="indeterminate" style="width: 50%;" *ngIf ="showLoading">
+
+      </mat-progress-bar >  
+
+    
+      <div class="graphContainer" style="margin-top: 30px;">
+      <div style="margin-top: 10px;" echarts [options]="chartOption" [theme]="macarons" (chartClick)="onpieselected($event)"
+          (chartInit)="onChartInit($event)"></div>
+      </div>
+          <!-- <div class="col-sm-4" style="width: 45%;" echarts [options]="chartOption_line" [theme]="macarons" (chartClick)="onpieselected($event)" 
+          (chartInit)="onChartInits($event)"></div> -->
+                   
+      
+      </mat-expansion-panel>
+    </mat-accordion>
+  </section>

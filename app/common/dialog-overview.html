@@ -1,0 +1,19 @@
+<h1 mat-dialog-title></h1>
+<div mat-dialog-content>{{data.message}}</div>
+<div mat-dialog-actions style="float: right;">
+  <button mat-button mat-dialog-close (click)="onNoClick()">Ok</button>
+</div>
+
+<!-- <h2 mat-dialog-title>Alert</h2>
+<mat-dialog-content class="mat-typography">{{data.message}}</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Stay</button>
+  <button
+    mat-button
+    [mat-dialog-close]="true"
+    cdkFocusInitial
+    (click)="onNoClick()"
+  >
+    Go Back
+  </button>
+</mat-dialog-actions> -->

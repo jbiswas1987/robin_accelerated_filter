@@ -1,0 +1,69 @@
+.header {
+  background-color: #005d78;
+  position: relative;
+  height: 52px;
+  z-index: 2;
+}
+
+.body {
+  overflow-y: auto;
+  @media only screen and (height: 1089px) {
+    height: 92.3%;
+  }
+  @media only screen and (height: 969px) {
+    height: 91.3%;
+  }
+  @media only screen and (height: 939px) {
+    height: 91.1%;
+  }
+  @media only screen and (height: 789px) {
+    height: 89.3%;
+  }
+  @media only screen and (height: 657px) {
+    height: 92.2%;
+  }
+}
+
+.heading {
+  font-size: medium;
+}
+
+.app-logo {
+  background: transparent url("../assets/logo.png") no-repeat left center;
+  background-size: 178px 38px;
+  margin-top: 0px;
+  margin-right: 8px;
+  height: 100%;
+  width: 237px;
+  float: left;
+}
+
+.app-branding {
+  line-height: 52px;
+  font-family: Lato;
+  display: inline-block;
+  font-size: 18px;
+  color: #ffffff;
+  height: 100%;
+}
+footer {
+  height: 32px;
+  background-color: #005d78;
+  position: relative;
+  // top: 0.3vh;
+  bottom: 0vh;
+}
+::ng-deep .mat-form-field-label {
+  display: none !important;
+}
+
+.log-out {
+  float: right;
+  padding: 5px;
+  margin-right: 5px;
+  color: wheat;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+

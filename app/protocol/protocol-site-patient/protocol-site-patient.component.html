@@ -1,0 +1,25 @@
+<section class="ProtocolSitePatient bodySection">
+  <mat-accordion>
+    <mat-expansion-panel [expanded]="false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <b>Site and Patients Actuals</b>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-grid-list cols="3" rowHeight="40vh">
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <!-- [style.background]="blue" -->
+          <app-site-breakdown></app-site-breakdown>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <!-- [style.background]="blue" -->
+          <app-patient-breakdown></app-patient-breakdown>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <!-- [style.background]="blue" -->
+          <app-visit-breakdown></app-visit-breakdown>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </mat-expansion-panel>
+  </mat-accordion>
+</section>

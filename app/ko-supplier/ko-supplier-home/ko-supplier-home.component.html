@@ -1,0 +1,12 @@
+<ul class="breadcrumb">
+  <li><a (click) ="backButtonActivity();" style="cursor: pointer;">Home</a></li>
+  <li><a>Kits Components Forecast</a></li>
+  <li></li>
+  <span style="float: right; font-size: 15px;margin-top: 9px;">
+    {{messageResponse}}
+    {{_externalSourceResponse}}
+   </span>
+</ul>
+<app-product-demand class="bodySection"></app-product-demand>
+<app-months-forward class="bodySection"></app-months-forward>
+<app-product-level class="bodySection"></app-product-level>

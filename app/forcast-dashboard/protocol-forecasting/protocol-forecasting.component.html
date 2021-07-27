@@ -1,0 +1,105 @@
+
+<section>
+  <mat-accordion style="margin-bottom: 2px">
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <b>Protocol List</b>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-progress-bar
+        class="example-margin"
+        color="primary"
+        mode="indeterminate"
+        *ngIf="showLoading"
+      >
+      </mat-progress-bar>
+      <q-grid [rows]="rows$ | async">
+        <q-grid-columns>
+          <q-grid-column
+            key="details"
+            title="Link"
+            [label]="myLabel"
+            type="url"
+          >
+
+          <ng-template for="body" let-$cell>
+            <a
+              *ngIf="$cell.tr.model.HasProtocolId === 1"
+              class="ng-star-inserted"
+              (click)="getProtocolID($cell.tr.model.Link,$cell.tr.model.Sponsor)"
+              ><u style="color: blue; cursor: pointer; padding-left: 10px;;"
+                >details</u
+              >
+            </a>
+            <a
+              *ngIf="$cell.tr.model.HasProtocolId === 0"
+              tooltip="No investigator info available"
+              class="ng-star-inserted"
+              ><label style="padding-left: 10px">--</label>
+            </a>
+          </ng-template>
+
+            <!-- <ng-template for="body" let-$cell>
+              <a (click)="getProtocolID($cell.value)" class="ng-star-inserted"
+                ><u style="color: blue; cursor: pointer">details</u>
+              </a>
+            </ng-template> -->
+          </q-grid-column>
+          <q-grid-column
+            key="ProtocolName"
+            title="Protocol Name"
+            type="string"
+          >
+          </q-grid-column>
+
+          <q-grid-column
+          key="CTProtocolID"
+          title="CT Protocol ID"
+          type="string"
+        ></q-grid-column>
+        <q-grid-column
+        key="KitsInForecastCurrentMonth"
+        title="Kits In Forecast Current Month"
+        type="number"
+      >
+      </q-grid-column>
+      <q-grid-column key="KitsInActualPreviousMonth" title="Kits In Actual Previous Month" type="number">
+        </q-grid-column>
+        <q-grid-column key="PercentageVarianceKitsIn" title="Percentage Variance Kits In" type="number">
+          </q-grid-column>
+          <q-grid-column
+            key="KitsOutForecastCurrentMonth"
+            title="Kits Out Forecast Current Month"
+            type="number"
+          >
+          </q-grid-column>
+          <q-grid-column
+            key="KitsOutActualPreviousMonth"
+            title="Kits Out Actual Previous Month"
+            type="number">
+          </q-grid-column>
+          <q-grid-column
+            key="PercentageVarianceKitsOut"
+            title="Percentage Variance Kits Out"
+            type="number"
+          >
+          </q-grid-column>
+          <q-grid-column key="nCTID" title="NCT" type="string"> </q-grid-column>
+          <q-grid-column
+            key="Sponsor"
+            title="Sponsor name"
+            type="string"
+          >
+          </q-grid-column>
+          <q-grid-column
+            key="PFDate"
+            title="PF Date"
+            type="date"
+          >
+          </q-grid-column> 
+        </q-grid-columns>
+      </q-grid>
+    </mat-expansion-panel>
+  </mat-accordion>
+</section>

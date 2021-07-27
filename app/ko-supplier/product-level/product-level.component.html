@@ -1,0 +1,107 @@
+<section class="bodySection" >
+  <mat-accordion>
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <b>Product Level Demand</b>
+        </mat-panel-title>
+     
+      </mat-expansion-panel-header>
+      <!-- <div style="margin-top: -20px;padding: 12px; margin-left: 40%">
+        <span style="font-size: 13px;color: #909090 !important">Search By: </span>
+        <label *ngFor="let radiobutton of radioItems">
+          <input style="font-size: 13px;" type="radio" name="options" (click)="getRadioClick(model.option = radiobutton)"
+          [checked]="radiobutton === model.option">{{radiobutton}}
+        </label>
+      </div> -->
+      
+      <mat-progress-bar class="example-margin" color="primary" mode="indeterminate" *ngIf="showLoading">
+      </mat-progress-bar>
+
+     
+    
+      <span style="margin-right: -5px;float:right;" class="tooltip" data-title="export" >
+        <img style="cursor: pointer;" [src]="download" (click)="downloadexcel()" >
+      </span>
+
+     <span style="margin-right: 20px;float:right;" class="tooltip" data-title="info" >
+       <img style="cursor: pointer;margin-left: 10px;"  [src]="info" (click)="infoDetails()" alt="">
+     </span>
+    
+
+      <mat-panel-title class="boder-area" *ngIf="!togglevalue" >
+          
+          <span style="font-size: 13px;cursor: pointer;margin-left: -10px;padding-left: 30px;" 
+          [ngStyle]="{'background-color':textdecorationMonthly,'text-decoration': textdecorationQuarterly,
+          'color' : textColorQuarterly,'text-underline-position': textUnderLinePosQuarterly,
+          'text-decoration-color':textUnderLineColorCodeQuarterly,'text-decoration-thickness':underLineTicknessQuarterly,
+          'text-underline-offset':textunderlineoffsetQuarterly}" 
+            (click)="koSupplierMonthly();">Monthly</span>
+          
+          <span style="padding-left: 10px"> </span>
+          <span style="font-size: 13px;
+          cursor: pointer;
+          margin-left: 30px;
+          padding-right: 20px;" 
+          [ngStyle]="{'background-color':textdecorationMonthly,'text-decoration': textdecorationMonthly,
+          'color' : textColorMonthly,'text-underline-position': textUnderLinePosMonthly,'text-decoration-color':textUnderLineColorCodeMonthly,
+          'text-decoration-thickness':underLineTicknessMonthly,'text-underline-offset':textunderlineoffsetMonthly}"  
+          (click)="koSupplierQuaertly();">Quarterly</span>
+        
+       
+      </mat-panel-title>
+      <!-- <span *ngIf='_isDisplay == "Product ID"' style="margin-left:30%;font-size: 14px;">Product ID : </span> -->
+    <!-- <div *ngIf='_isDisplay == "Product ID" else productDesc'> -->
+    <ng-autocomplete class="productID"  [data]="_productID"  [(ngModel)]="productID" [searchKeyword]="keywordProduct" placeholder="Search By Product ID"
+      (selected)='onChangeProductID($event)'
+      [itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate">
+    </ng-autocomplete>
+    <!-- historyIdentifier="_productID" -->
+    <ng-template #itemTemplate let-item>
+      <a style="font-size: 13px;" [innerHTML]="item.ProductId"></a>
+    </ng-template>
+      <ng-template #notFoundTemplate let-notFound>
+      <div [innerHTML]="notFound"></div>
+    </ng-template>
+    <!-- </div> -->
+
+    <!-- <ng-template #productDesc> -->
+      <ng-autocomplete class="productDescription"  [data]="_productID"  [(ngModel)]="productDescription"  [searchKeyword]="keywordProductDesc" placeholder="Search By Product Description"
+      (selected)='onChangeProductDescription($event)'  style="font-size: 13px;" 
+      [itemTemplate]="itemTemplates">
+        </ng-autocomplete>
+        <!-- [notFoundTemplate]="notFoundTemplates" -->
+        <!-- historyIdentifier="_productID" -->
+        <!-- (click)="onEnter($event)" -->
+        <!-- (inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)'
+        (onSelectionChange)="onEnter($event)" -->
+        <ng-template #itemTemplates let-item>
+          <a style="font-size: 13px;font-family: Roboto, Helvetica Neue, sans-serif" [innerHTML]="item.ProductDescription"></a>
+        </ng-template>
+      
+        <!-- <ng-template #notFoundTemplates let-notFound>
+          <div [innerHTML]="notFound"></div>
+        </ng-template> -->
+    <!-- </ng-template> -->
+
+      <!-- <div *ngIf='_isDisplay == "Product Description"'>
+       
+        </div> -->
+
+      <!-- <select *ngIf='_isDisplay == "Product Description"' style="margin-left:1%" name="city" class="rounded-inputs20 select-select col-md-3" (change)="onChange($event.target.value)">
+        <option *ngFor="let productDescription of _productID"  [value]="productDescription.ProductDescription">{{productDescription.ProductDescription}}</option>
+    </select> -->
+    <hr class="new1">
+    <span style="font-size: 14px;font-weight: bold;margin-left: 16px;">
+      <!-- Year {{_currentYear}} Kits Volume: {{_totalValue}}  -->
+      {{_textDisplay}}
+
+      </span>
+    <div class="graphContainer" style="margin-top: 8px;">
+      <div style="margin-top: 10px;"  echarts [options]="chartOption" [theme]="macarons" (chartClick)="onpieselected($event)"
+          (chartInit)="onChartInit($event)"></div>
+      </div>  
+    </mat-expansion-panel>
+  </mat-accordion>
+</section>
+

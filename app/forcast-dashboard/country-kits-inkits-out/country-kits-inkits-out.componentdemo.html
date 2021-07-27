@@ -1,0 +1,191 @@
+
+
+<section class="bodySection">
+    <mat-accordion>
+      <mat-expansion-panel style="background-color: none;" [expanded]="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <b>Country Level</b>         
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-progress-bar
+        class="example-margin"
+        color="primary"
+        mode="indeterminate" style="width: 50%;" *ngIf ="showLoading">
+      </mat-progress-bar >   
+      <!-- <span style="float:right;margin-top:-10px;">
+          <img style="cursor: pointer;" [src]="download" class="btn" (click)="downloadexcel()" alt="">
+       
+      </span> -->
+      <span style="margin-right: -5px;float:right;margin-top:-10px" class="tooltip" data-title="export" >
+        <img style="cursor: pointer;" [src]="download" (click)="downloadexcel()" >
+      </span>
+
+     <span style="margin-right: 20px;float:right;margin-top:-10px" class="tooltip" data-title="info" >
+       <img style="cursor: pointer;margin-left: 10px;"  [src]="info" (click)="infoDetails()" alt="">
+     </span>
+      <!-- <span style="float:right;margin-top:-10px;">
+          
+          <img style="cursor: pointer;" [src]="download" class="btn" (click)="downloadexcel()" alt="">     
+          <img style="cursor: pointer;margin-left: 10px;" [src]="info" class="btn" (click)="infoDetails()" alt="">  
+      </span> -->
+        <mat-grid-list cols="6" style="height: 48vh;margin-top: 10px;" *ngIf = "!Isexpand_map">
+          <mat-grid-tile [colspan]="1" style="height: 76vh;background-color: #FFFFFF;"  class="border-container" [rowspan]="siteSunRowspan" >
+            <div class="row" style="margin-top: 10px;" >
+              <div class="col-sm-2 boder-area" >
+
+                <span   [ngStyle]="{'background-color':textdecorationKitsIN,'text-decoration': textdecorationKitsOut,'color' : textColorKitsOut,'text-underline-position': textUnderLinePosKitsOut,'text-decoration-color':textUnderLineColorCodeKitsOut,'text-decoration-thickness':underLineTicknessKitsOut,'text-underline-offset':textunderlineoffsetKitsOut}" 
+                  style="cursor:pointer;margin-left: 20px; font-size: 13px" (click)="kitsOUT();">Kits - Out</span>
+                
+                <span [ngStyle]="{'background-color':buttonBGColorKitsIN,'text-decoration': textdecorationKitsIN,'color' : textColorKitsIN,'text-underline-position': textUnderLinePosKitsIN,'text-decoration-color':textUnderLineColorCodeKitsIN,'text-decoration-thickness':underLineTicknessKitsIN,'text-underline-offset':textunderlineoffsetKitsIN}"
+                   style="margin-left: 20px;cursor:pointer;font-size: 13px;" (click)="kitsIN();">Kits - In</span>
+                <!-- <span style="border-left: 2px solid black;height: 16px;;"> </span> -->
+                <!-- <span   [ngStyle]="{'background-color':textdecorationKitsIN,'text-decoration': textdecorationKitsOut,'color' : textColorKitsOut,'text-underline-position': textUnderLinePosKitsOut,'text-decoration-color':textUnderLineColorCodeKitsOut,'text-decoration-thickness':underLineTicknessKitsOut,'text-underline-offset':textunderlineoffsetKitsOut}" 
+                 style="margin-left: 20px;cursor:pointer;font-size: 13px;" (click)="kitsOUT();">Kits - Out</span> -->
+              </div>
+              <!-- <div class="col-sm-2" style="margin-top: 12px;" >
+                  <select style="margin-left:65px" name="city" class="rounded-inputs20 select-select col-md-3" (change)="onChange($event.target.value)">
+                      <option *ngFor="let currentmontyear of currentMonthYear"  [value]="currentmontyear.id">{{currentmontyear.name}}</option>
+                  </select>
+              </div> -->
+              <!-- <hr style="width:100%;text-align:left;margin-left:0;top:5px;margin-top: 20px; "> -->
+              <div class="col-sm-2" style="margin-top: 15px;" >
+                <select style="margin-left:65px" name="city" class="rounded-inputs20 select-select col-md-3" (change)="onChange($event.target.value)">
+                    <option *ngFor="let currentmontyear of currentMonthYear"  [value]="currentmontyear.forCastMonth">{{currentmontyear.forCaseMonthDisplay}}</option>
+                </select>
+            </div>
+              <!-- <div class="col-sm-2" style="margin-top: 10px;" >
+                  <span style="margin-left: 25px;font: 400 14px/20px Roboto,Helvetica Neue,sans-serif;" class="text-style"> % deviation from last month</span>
+               </div> -->
+
+               <mat-grid-list cols="4" style="height: 22vh;margin-top: 20px;position: inherit;font-size: 15px;">
+         
+                  <!-- <mat-grid-tile [colspan]="2" class="border-container-deviation" style="height: 20vh" >
+                    
+                      <span style="font: 400 12px/20px Roboto,Helvetica Neue,sans-serif;margin-left: 5px; margin-top: 46px;" class="text-style"> % deviation from last month</span>
+
+                    </mat-grid-tile> -->
+               
+                
+                  <mat-grid-tile [colspan]="4" class="border-container-deviation"  style="height: 13vh"  >
+                    <div style="display:grid">
+                        <span class="text-style" style="margin-left: 20px;margin-top: 10px;top:6px;position: relative;font-size: 15px;"> % deviation from last month</span>
+                        <!-- <md-slider min="0" max="1000" step="1" [(ngModel)]="value" (change)="sliderEvent()"></md-slider> -->
+
+                        <!-- <mat-slider min="10" max="1000" step="1" thumbLabel [(ngModel)]="value"  (change)="sliderEvent()"></mat-slider> -->
+                        <!-- <span class="text-style level-slider" >10</span> -->
+                        <!-- [step]="10" -->
+                        <mat-slider
+                        class="example-margin"
+                        [max]="sliderValue"
+                        [min]="0"
+                        value="10"
+                        thumbLabel
+                        [tickInterval]="tickInterval"
+                        [(ngModel)]="value"
+                        [vertical]="vertical"
+                        (change)="sliderEvent()"></mat-slider>
+                        <!-- (mouseup)="sliderEvent()" -->
+                        <!-- <ngx-slider [(ngModel)]="value" style="margin-left: 10px;margin-top: 35%;" [step]="5" [filled]="true" [min]="10" [max]="sliderValueMax" (mouseup)="sliderEvent()">
+                        </ngx-slider> -->
+
+                        <!-- <ngx-slider [(value)]="value" style="margin-left: 10px;margin-top: 35%;" [(highValue)]="sliderValue" [options]="options" (mouseup)="sliderEvent()"></ngx-slider>  -->
+                      
+                       
+                  
+                        <!-- <button style="margin: 20px;margin-left:1px;" mat-raised-button class="button-new hover-class:hover" (click)="NewDevitationInformation();" >
+                           <span style="margin: -5px;position: absolute;">Submit</span> 
+                       </button> -->
+     
+                    </div>
+                     
+                     
+                  </mat-grid-tile>
+                 
+                  <!-- <div style="margin-left: 50%;" echarts [options]="chartOption"  (chartInit)="onChartInit($event)"></div>  -->
+                 </mat-grid-list>
+
+               <!-- <div class="col-sm-2" style="margin-top: 12px;" >
+                  <span style="margin-left: 50px;"  class="text-style"> Upper Bound (%)</span>
+                  <input [(ngModel)]="upperBound" style="width: 50%;height: 12px;margin-left: 50px;" type="text">
+                  <span style="margin-left: 51px; margin-top: 9px;padding-top: 8px; position: relative;display: flex;" class="text-style"> Lower Bound (%)</span>
+                  <input [(ngModel)]="lowerBound" style="width: 50%; height: 12px; margin-left: 50px; "  type="text">
+                  <button mat-raised-button class="button-new hover-class:hover" (click)="NewDevitationInformation();" >
+                       Submit
+                  </button>
+
+                </div> -->
+                <br/>
+              <mat-table #table [dataSource]="dataSource" style="margin-top: -30px;">
+                <ng-container [matColumnDef]="columnName" *ngFor="let columnName of displayedColumns">
+                  <mat-header-cell class="text-style" *matHeaderCellDef style="color: #757575;font: 200 13px/14px Roboto,Helvetica Neue,sans-serif;font-size: 12px;padding-left: 20px;
+                  font-weight: bold;   position: absolute;">
+                    {{columnName}} </mat-header-cell>
+                  <mat-cell class="text-style" *matCellDef="let element" [innerHTML]="element[columnName] | countryLevelTextFormat" > </mat-cell>
+                </ng-container>
+        
+                <mat-header-row class="text-style"  *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row style="margin-left: -20px; padding: 2px;" class="text-style" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+              </mat-table>
+              <!-- <div class="col-sm-2" style="margin-top: 12px;" >
+                  <div class="col-sm-2" >
+                      <span style="margin-left: 2px;padding-left:12px;font-weight: bold" class="text-style">Current Month</span>
+                      <span style="margin-left: 16px;font-size: 20px;">|</span>
+                      <span style="margin-left: 15px;font-weight: bold" class="text-style">Last Month</span>
+                    </div>
+              </div>
+
+              <div class="col-sm-2" style="margin-top: 10px;" >
+                  <div class="col-sm-2" >
+                      <span style="margin-left: 2px;padding-left:1px;font-weight: bold;position: absolute">Protocols</span>
+                      <span style="margin-left: 12px;padding-left:85px;position: relative" class="text-style">{{protocolCurrentMonth}}</span>
+                      <span style="margin-left: 3px;">|</span>
+                      <span style="margin-left: 3px;" class="text-style">{{protoColPreMonth}}</span>
+                    </div>
+              </div>
+              <div class="col-sm-2" style="margin-top: 5px;" >
+                  <div class="col-sm-2" >
+                      <span style="margin-left: 2px;padding-left:1px;font-weight: bold;position: absolute">Kits In</span>
+                      <span style="margin-left: 12px;padding-left:45px" class="text-style">{{kitsInForcastcurrentMonth}}</span>
+                      <span style="margin-left: 3px;">|</span>
+                      <span style="margin-left: 3px;" class="text-style">{{kitsInForcastpreviousMonth}}</span>
+                    </div>
+              </div>
+
+              <div class="col-sm-2" style="margin-top: 5px;" >
+                  <div class="col-sm-2" >
+                      <span style="margin-left: 2px;padding-left:1px;font-weight: bold;position: absolute">Kits Out</span>
+                      <span style="margin-left: 12px;padding-left:45px;" class="text-style">{{kitsOutForcastcurrentMonth}}</span>
+                      <span style="margin-left: 3px;">|</span>
+                      <span style="margin-left: 3px;" class="text-style">{{kitsOutForcastpreviousMonth}}</span>
+                    </div>
+              </div> -->
+
+            </div>
+            </mat-grid-tile>
+            <!-- <div class="chartdiv" style="margin-left: 8%"  id="chartdiv"></div> -->
+            <!-- <mat-grid-tile [colspan]="5" class="chartdiv" style="height: 70vh;background-color: #FFFFFF;margin-left: 5px;" [rowspan]="siteSunRowspan" >
+                <div class="chartdiv"  id="chartdiv"></div>
+                </mat-grid-tile> -->
+
+              <mat-grid-tile [colspan]="5" class="chartdiv" style="height: 70vh;background-color: #FFFFFF;margin-left: 5px;" [rowspan]="siteSunRowspan" >
+                  <div *ngIf="IsHighScreenRes === false" class="chartdiv"  id="chartdiv"></div>
+                  <div *ngIf="IsHighScreenRes === true" class="chartdivhighResolution"  id="chartdivhighResolution"></div>
+              </mat-grid-tile>    
+            <!-- <div style="margin-left: 30%;margin-right: 10%"  id="chartdiv"></div> -->
+         <!-- <mat-grid-tile [colspan]="3"  class="siteTable" style="margin-left: 10px;width: 90%;height: 42vh;top:-50px;position: relative;display: inline-flex" [rowspan]="siteSunRowspan">  -->
+            
+            <!-- <app-dashboard-site-table style="min-height: 0px;margin-bottom: 30px;max-height: 0px;"></app-dashboard-site-table> -->
+            
+            <!-- <div echarts [options]="chartOption" (chartInit)="onChartInit($event)"></div> -->
+          <!-- </mat-grid-tile> -->
+          <!-- <div style="margin-left: 50%;" echarts [options]="chartOption"  (chartInit)="onChartInit($event)"></div>  -->
+         </mat-grid-list>
+       
+      
+      </mat-expansion-panel>
+    </mat-accordion>
+  </section>
+  
+  
+  

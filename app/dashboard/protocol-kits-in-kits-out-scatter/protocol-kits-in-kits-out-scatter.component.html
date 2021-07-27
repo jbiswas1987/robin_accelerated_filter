@@ -1,0 +1,29 @@
+<mat-drawer-container autosize>
+    <mat-drawer #drawer mode="side" position="end">
+      <section class="MCCMetrics">
+        <div class="graphContainer">
+          <!-- <app-mcc-protocol-list #protListComponent></app-mcc-protocol-list> -->
+        </div>
+      </section>
+    </mat-drawer>
+    
+    <section class="MCCMetrics bodySection">
+      <div class="graphContainer">
+        <mat-progress-bar
+          class="example-margin"
+          color="primary"
+          mode="indeterminate"
+          *ngIf="showLoading"
+        >
+        </mat-progress-bar>
+        <div
+          echarts
+          [options]="option"
+          class="demo-chart"
+          (chartInit)="onChartInit($event)"
+          (chartBrushSelected)="onBrushSelected($event)"
+          [autoResize]="true"
+        ></div>
+      </div>
+    </section>
+  </mat-drawer-container>

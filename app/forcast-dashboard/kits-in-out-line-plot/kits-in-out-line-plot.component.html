@@ -1,0 +1,47 @@
+<section class="ProtocolMetrics bodySection">
+  <mat-accordion>
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <!-- <b>Kits In/Out Performance</b> -->
+        </mat-panel-title>
+       
+      </mat-expansion-panel-header>
+      <!-- <div class="row">
+        <div class="col-sm-6">
+            <span class="boder-area" style="color: black; margin-left: 16%;width: 7%; padding: 7px; padding-left: 40px;">Kits-In</span>
+            <span class="boder-area" style="color: black;margin-left: 48%;width: 7%;padding-left: 45px;">Kits-Out</span>
+        </div>
+       
+      </div> -->
+      <!-- <mat-grid-list cols="6" style="height: 38vh;margin-top: 25px;" *ngIf = "!Isexpand_map">
+         
+          <mat-grid-tile [colspan]="3" class="border-container" style="height: 60vh" [rowspan]="siteSunRowspan" >
+            
+            <app-forcast-kits-in-bar-graph  style="width: 100%;"></app-forcast-kits-in-bar-graph>
+            </mat-grid-tile>
+       
+        
+          <mat-grid-tile [colspan]="3" class="border-container" style="height: 60vh" [rowspan]="siteSunRowspan" >
+            
+           <app-forcast-kits-outbar-graph  style="width: 100%"></app-forcast-kits-outbar-graph>
+            </mat-grid-tile>
+         
+         </mat-grid-list>           -->
+
+
+         <mat-grid-list cols="5" rowHeight="58vh">
+            <mat-grid-tile [colspan]="4" [rowspan]="1">
+              <!-- [style.background]="blue" -->
+              <app-kits-in-out-line  ></app-kits-in-out-line>
+            </mat-grid-tile>
+            <!-- <mat-grid-tile [colspan]="2" [rowspan]="1">
+             
+              <app-forcast-kits-outbar-graph  ></app-forcast-kits-outbar-graph>
+            </mat-grid-tile> -->
+          </mat-grid-list>
+
+      
+      </mat-expansion-panel>
+    </mat-accordion>
+  </section>

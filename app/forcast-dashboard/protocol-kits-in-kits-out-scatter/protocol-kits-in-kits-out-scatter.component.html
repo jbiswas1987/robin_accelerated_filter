@@ -1,0 +1,36 @@
+<!-- <a  class="dashboardLink" style="color: blue;cursor: pointer;padding: 12px" (click) ="backButtonActivity();"><span><u> Back to Forecast Kits In/Out Dashboard</u></span> </a> -->
+<!-- <a  class="dashboardLink" style="color: blue;cursor: pointer;padding: 0px;margin-left: 22px;font-size: 13px;" (click) ="backButtonHome();"><span><u>Home</u></span> </a>
+<img [src]="breadcrumb" style="width: 10px; padding-left: 6px"/>
+<a style="color: blue;cursor: pointer; font-size: 13px;"  (click) ="backButtonKitForCasting();"><span><u> Kit Forecasting</u></span></a>
+<img [src]="breadcrumb" style="width: 10px; padding-left: 6px"/>
+<span style="padding-left: 5px;font-size: 13px;">Portfolio Scatter</span> -->
+
+<mat-drawer-container autosize>
+    <mat-drawer #drawer mode="side" position="end">
+      <section class="MCCMetrics">
+        <div class="graphContainer">
+          <app-mcc-protocol-list #protListComponent></app-mcc-protocol-list>
+        </div>
+      </section>
+    </mat-drawer>
+    
+    <section class="MCCMetrics bodySection">
+      <div class="graphContainer">
+        <mat-progress-bar
+          class="example-margin"
+          color="primary"
+          mode="indeterminate"
+          *ngIf="showLoading"
+        >
+        </mat-progress-bar>
+        <div
+          echarts
+          [options]="option"
+          class="demo-chart"
+          (chartInit)="onChartInit($event)"
+          (chartBrushSelected)="onBrushSelected($event)"
+          [autoResize]="true"
+        ></div>
+      </div>
+    </section>
+  </mat-drawer-container>

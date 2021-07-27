@@ -1,0 +1,118 @@
+<mat-accordion>
+    <mat-expansion-panel [expanded]="false" style="margin: 7px;width: 100%;margin-left:1px">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <b><span style="color: #005d78">Sponsor</span> </b>
+        </mat-panel-title>     
+      </mat-expansion-panel-header>
+      <!-- <div class="search-hero">
+        <input class="form-control" type="text" name="search"
+         [(ngModel)]="searchTextSponsor" style="width: 93%;height: 25px;" autocomplete="off" placeholder="&#61442; Search Sponsor..">
+      </div> -->
+      <div class="graphContainer" style="height: 2y00px; overflow: hidden;margin-top: 0px;width: 200px;">
+        <ng-multiselect-dropdown name="city" [placeholder]="'Select Sponsor.'" [data]="dropdownList" 
+        [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
+        (onSelectAll)="onSelectAll($event)"
+        (onDeSelect)="onItemDeSelect($event)">
+        </ng-multiselect-dropdown>
+        <!-- (onDropDownClose)="onDropDownClose()" (onSelect)="onItemSelect($event)" 
+        (onSelectAll)="onSelectAll($event)" -->
+        <!-- <ng-multiselect-dropdown-angular7
+          [placeholder]="'custom placeholder'"
+          [data]="dropdownList"
+          [(ngModel)]="selectedItems"
+          [settings]="dropdownSettings"
+          
+        >
+
+        </ng-multiselect-dropdown-angular7> -->
+        <!-- (onSelect)="onItemSelect($event)"
+          (onSelectAll)="onSelectAll($event)"
+          (onDeSelect)="onItemDeSelect($event)" -->
+       <!-- <form [formGroup]="checkboxGroup" (ngSubmit)="submit()">
+
+          <ng-container formArrayName="checkboxesSponsorFilter" *ngFor="let order of checkboxGroup.controls.checkboxesSponsorFilter.controls | filter:searchTextSponsor; let i = index">
+              <input type="checkbox" [formControlName]="i"
+              (change)="onFilterChangeSponsor($event)">
+              {{checkboxesSponsorFilter[i].CleanSponsor}}
+              <br>
+            </ng-container>
+          
+        </form> -->
+        
+        <!-- Checkbox values: {{ checkboxGroup.controls.checkboxes.value | json}}   -->
+      </div>
+      <button class="button-position">RESET</button>
+      <button class="button-position" style="float:right" (click)="submit()">APPLY</button>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <mat-accordion>
+  <mat-expansion-panel [expanded]="false" style="margin: 7px;width: 100%;margin-left:1px">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+          <b><span style="color: #005d78">Trial List Type</span> </b>
+        <!-- <b>Trial List Type </b> -->
+      </mat-panel-title>     
+    </mat-expansion-panel-header>
+    <div class="search-hero">
+      <input class="form-control" type="text" name="search"
+       [(ngModel)]="searchText" style="width: 93%;height: 25px;" autocomplete="off" placeholder="&#61442; Search Sponsor..">
+    </div>
+    <div class="graphContainer" style="height: 130px; overflow: auto;margin-top: 0px;width: 200px;">
+      <!-- <form [formGroup]="checkboxGroupTrialListType" >
+
+          <label formArrayName="checkboxesTrialFilter" *ngFor="let order of checkboxGroupTrialListType.controls.checkboxesTrialFilter.controls | filter:searchText; let i = index">
+              <input type="checkbox" [formControlName]="i"
+              (change)="onFilterChangeTrialListType($event)">
+              {{checkboxesTrialFilter[i].TrialListType}}
+              <br>
+            </label> -->
+
+        <!-- <ng-container *ngFor="let checkbox of checkboxesTrialFilter; let i = index" formArrayName="checkboxesTrialFilter">
+          <input type="checkbox" [formControlName]="i" />
+          <span style="margin-left: 4px;">{{checkbox.TrialListType}}</span>
+          <br />
+        </ng-container> -->
+        
+      <!-- </form> -->
+      
+      <!-- Checkbox values: {{ checkboxGroup.controls.checkboxes.value | json}}   -->
+    </div>
+    <button class="button-position">RESET</button>
+    <button class="button-position" style="float:right" (click)="submit()">APPLY</button>
+  </mat-expansion-panel>
+</mat-accordion>
+<mat-accordion>
+  <mat-expansion-panel [expanded]="false" style="margin: 7px;width: 100%;margin-left:1px" >
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+          <b><span style="color: #005d78">Protocol Name</span> </b>           
+      </mat-panel-title>     
+    </mat-expansion-panel-header>
+    <div class="search-hero">
+      <input class="form-control" type="text" name="search"
+       [(ngModel)]="searchText" style="width: 93%;height: 25px;" autocomplete="off" placeholder="&#61442; Search Sponsor..">
+    </div>
+    <div class="graphContainer" style="height: 130px; overflow: auto;margin-top: 0px;width: 200px;">
+      <!-- <form [formGroup]="checkboxGroupProtocolName">
+          <label formArrayName="checkboxesProtolName" *ngFor="let order of checkboxGroupProtocolName.controls.checkboxesProtolName.controls | filter:searchText; let i = index">
+              <input type="checkbox" [formControlName]="i"
+              (change)="onFilterChangeprotocolNameType($event)">
+              {{checkboxesProtolName[i].protocolName}}
+              <br>
+            </label> -->
+        
+        <!-- <ng-container *ngFor="let checkbox of checkboxesProtolName; let i = index" formArrayName="checkboxesProtolName">
+          <input type="checkbox" [formControlName]="i" />
+          <span style="margin-left: 4px;">{{checkbox.protocolName}}</span>
+          <br />
+        </ng-container> -->
+        
+      <!-- </form> -->
+      
+    </div>
+    <button class="button-position">RESET</button>
+    <button class="button-position" style="float:right" (click)="submit()">APPLY</button>
+  </mat-expansion-panel>
+  <button class="button-position" style="float:right" >RESET ALL</button>
+</mat-accordion>

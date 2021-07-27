@@ -1,0 +1,14 @@
+<!-- <div style="width: 100%" echarts [options]="chartOption"  (chartInit)="onChartInit($event)"></div>  -->
+
+<mat-progress-bar class="example-margin"
+                  color="primary"
+                  mode="indeterminate"
+                  *ngIf="showLoading">
+</mat-progress-bar>
+<span style="float:right;">
+  <img style="cursor: pointer;" [src]="download" class="btn" (click)="downloadexcel()" alt="">
+</span>
+<div class="graphContainer" style="margin-top: 30px;">
+  <b style="position: relative;bottom: -4px;">{{level}}</b>
+  <div style="width: 100%" echarts [options]="chartOption" (chartInit)="onChartInit($event)" [theme]="macarons" class="performance-chart"></div>
+</div>

@@ -1,0 +1,135 @@
+<div>
+  <div class="top-position">
+    <span class="all-toggle">All</span>
+    <span></span>
+    <mat-slide-toggle class="toggle"
+  [(ngModel)]="myFlagForSlideToggle" [disabled]="disabled" [color]="color" (change)="changeAccelarateToggle($event)">
+ </mat-slide-toggle>
+    <span class="accelerated-toggle">Accelerated</span>
+  </div>
+  <!-- <mat-slide-toggle class="change-toggle"
+  [(ngModel)]="myFlagForSlideToggle" (change)="changeAccelarateToggle($event)">
+ </mat-slide-toggle> -->
+  <!-- <toggle-button class="change-toggle" (changed)="changeAccelarateToggle($event)">
+  </toggle-button> -->
+</div>
+<div class="sponsor-list">
+  <div (click)='expandcollapseState();' style="cursor: pointer;">
+      <span class="expand-collapse-state" >
+          <span>Sponsor</span>      
+          <img *ngIf="_sponsorFilterActiveState =='true'" class="active-state"
+            [src]="download">
+        </span>
+        <span class="expand-button" >
+            <!-- *ngIf='sponsorExpandCollapse == false' -->
+          <img [hidden]='sponsorExpandCollapse' class="down-arrow-sponsor"
+            [src]="down">
+            <!-- *ngIf='sponsorExpandCollapse == true' -->
+          <img [hidden]='!sponsorExpandCollapse' class="up-arrow-sponsor"
+            [src]="up">
+          </span>
+  </div>
+  <!-- <span class="expand-collapse-state" (click)='expandcollapseState();'>
+    <span>Sponsor</span>
+
+    <img *ngIf="_sponsorFilterActiveState =='true'" (click)='expandcollapseState();' class="active-state"
+      [src]="download">
+  </span>
+  <span class="expand-button" (click)='expandcollapseState();'>
+
+    <img *ngIf='sponsorExpandCollapse == false' class="down-arrow-sponsor"
+      [src]="down">
+    <img *ngIf='sponsorExpandCollapse == true' class="up-arrow-sponsor"
+      [src]="up">
+
+  </span> -->
+
+  <div [hidden]='!sponsorExpandCollapse' class="spinsor-dropdown">
+    <div class="checkboxWrapper dropdown-list">
+      <div>
+        <input type="text" class="search"
+          [(ngModel)]="searchTextSponsor" (keyup)="onKeySearchSponsor($event)" placeholder="search">
+        <span class="sponsor-search-position">
+          <img class="magnify-glass-search-icon" [src]="search">
+        </span>
+        <hr class="hr-sponsor-protocol">
+      </div>
+      <div class="select-all-checkbox sponsor-protocol-checkbox-position" >
+        <input class="checkbox-input" type="checkbox" name="all"
+          [checked]="areAllSelected" (change)="toggleAllSelectionSponsor()"><span style="padding-left: 11px;font-size: 13px; color: #004b37;">All</span>
+      </div>
+      <div *ngFor="let sponsor of _sponsorList | search : searchTextSponsor">
+        <div class="selection sponsor-protocol-selected ">
+          <input type="checkbox" (click)="sponsorSelected(sponsor.CleanSponsor,$event)" [(ngModel)]="sponsor.selected"
+            [checked]="sponsor.selected">
+          <span class="selected-div list-font" >{{sponsor.CleanSponsor}}
+          </span>
+        </div>
+      </div>
+      <div>
+      </div>
+    </div>
+    <button class="button-position apply-button" (click)="ApplyForSponsor()">APPLY</button>
+    <button class="button-position reset-button" (click)="ResetButtonForSponsor()">RESET</button>
+  </div>
+</div>
+
+<div class="protocol-list">
+  <div (click)='expandcollapseProtocolState();' style="cursor: pointer;">
+        <span class="expand-collapse-state" >
+          <span> Protocol Name</span>
+        </span>  
+        <img *ngIf="_protocolFilterActiveState =='true'" class="protocol-filter-active-button"
+          [src]="download">
+        <span class="expand-button">  
+            <!-- *ngIf="protoColExpandCollapse == false"     -->
+          <img [hidden]='protoColExpandCollapse' class="protocol-down-arrow" [src]="down">
+            <!-- *ngIf="protoColExpandCollapse == true" -->
+          <img [hidden]="!protoColExpandCollapse" class="protocol-up-arrow" [src]="up">
+        </span>
+  </div>
+  <!-- <span class="expand-collapse-state" (click)='expandcollapseProtocolState();'>
+    <span> Protocol Name</span>
+  </span>  
+  <img *ngIf="_protocolFilterActiveState =='true'" class="protocol-filter-active-button"
+    [src]="download">
+  <span class="expand-button" (click)='expandcollapseProtocolState();'>
+
+    <img *ngIf="protoColExpandCollapse == false" class="protocol-down-arrow"
+      [src]="down">
+    <img *ngIf="protoColExpandCollapse == true" class="protocol-up-arrow"
+      [src]="up">
+  </span> -->
+
+  <!-- <mat-progress-bar *ngIf="isLoading ==true" [value]="value" class="example-margin" color="primary" mode="indeterminate">
+  </mat-progress-bar> -->
+
+  <div [hidden]='!protoColExpandCollapse'>
+    <div class="checkboxWrapper dropdown-list" >
+      <div>
+        <input type="text" class="search"
+          [(ngModel)]="searchTextProtcol" (keyup)="onKeySearchProtocolName($event)" placeholder="search">
+        <span class="protocol-search-image-position">
+          <img class="magnify-glass-search-icon" [src]="search">
+        </span>
+        <hr class="hr-sponsor-protocol">
+      </div>
+      <div class="select-all-checkbox sponsor-protocol-checkbox-position">
+        <input class="checkbox-input" type="checkbox" name="all"
+          [checked]="areAllSelectedProtocol" (change)="toggleAllSelectionProtocol()">
+        <span style="padding-left: 11px;font-size: 13px;color: #004b37;">All</span>
+      </div>
+      <div *ngFor="let protocolName of _protocolNameList | search : searchTextProtcol">
+        <div class="selection sponsor-protocol-selected" >
+          <input type="checkbox" (click)="protocolSelected(protocolName.protocolName,$event)" [(ngModel)]="protocolName.selected"
+            [checked]="protocolName.selected">
+          <span class="selected-div list-font">{{protocolName.protocolName}}
+          </span>
+        </div>
+      </div>
+    </div>
+    <button class="button-position apply-button" (click)="ApplyForProtocol()">APPLY</button>
+    <button class="button-position reset-button" (click)="ResetButtonForProtocol()">RESET</button>
+  </div>
+</div>
+<button class="button-position-reset-ALL resetALL" (click)="ResetButtonALL()">RESET ALL</button>

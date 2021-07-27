@@ -1,0 +1,27 @@
+
+<button mat-icon-button class="close-button" align="end" [mat-dialog-close]="true">
+  <mat-icon align="end" class="close-icon" color="warn">close</mat-icon>
+</button>
+<h1 mat-dialog-title></h1>
+<!-- <div mat-dialog-actions style="float: right;">
+    <button mat-button mat-dialog-close (click)="onNoClick()">Cancel</button>
+  </div> -->
+    <div mat-dialog-content style="height: 500px;
+    overflow: hidden;width: 100%;">
+        <pdf-viewer
+        [src]="data.message"
+        [rotation]="0"
+          [fit-to-page]="false"
+          [original-size]="false"
+          [show-all]="true"
+          style="display: block;height: 500px;
+          overflow: hidden;"
+      ></pdf-viewer>
+    </div>
+    <mat-dialog-actions style="float: right;" align="end">
+        <button mat-flat-button color="warn" (click)="onNoClick()" >Close</button>
+      </mat-dialog-actions>
+
+<!-- <div mat-dialog-actions style="float: right;">
+  <button mat-button mat-dialog-close (click)="onNoClick()">Close</button>
+</div> -->

@@ -1,0 +1,74 @@
+<section class="bodySection">
+    <mat-accordion>
+      <mat-expansion-panel style="background-color: none;" [expanded]="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <b>Covid/Non-Covid Demand</b>         
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-progress-bar
+        class="example-margin"
+        color="primary"
+        mode="indeterminate" style="width: 50%;" *ngIf ="showLoading">
+      </mat-progress-bar >  
+
+      <mat-panel-title class="boder-area"  >
+          
+        <span style="font-size: 13px;cursor: pointer;margin-left: -10px;padding-left: 30px;" 
+        [ngStyle]="{'background-color':textdecorationKitsIN,'text-decoration': textDecorationTotal,
+        'color' : textColorTotal,'text-underline-position': textUnderLineTotal,
+        'text-decoration-color':textUnderLineColorTotal,'text-decoration-thickness':textthicknessTotal,
+        'text-underline-offset':textoffsetTotal}" 
+          (click)="DemandBreakDownTotal();">Total</span>
+        
+        
+        <span style="font-size: 13px;
+        cursor: pointer;
+        margin-left: 45px;
+        padding-right: 20px;" 
+        [ngStyle]="{'background-color':textdecorationKitsIN,'text-decoration': textDecorationNewSale,
+        'color' : textColorNewSale,'text-underline-position': textUnderLineNewSale,
+        'text-decoration-color':textUnderLineColorNewSale,'text-decoration-thickness':textthicknessNewSale,
+        'text-underline-offset':textoffsetNewSale}"  
+        (click)="DemandBreakDownNewSales();">New Sale</span>
+        
+        <span style="font-size: 13px;
+        cursor: pointer;
+        margin-left: 30px;
+        padding-right: 20px;" 
+        [ngStyle]="{'background-color':textdecorationKitsIN,'text-decoration': textDecorationOngoing,
+        'color' : textColorOngoing,'text-underline-position': textUnderLineOngoing,'text-decoration-color':textUnderLineColorOngoing,
+        'text-decoration-thickness':textthicknessOngoing,'text-underline-offset':textoffsetOngoing}"  
+        (click)="DemandBreakDownOngoing();">On-going</span>
+
+        <span style="font-size: 13px;
+        cursor: pointer;
+        margin-left: 30px;
+        padding-right: 20px;" 
+        [ngStyle]="{'background-color':textdecorationKitsIN,'text-decoration': textDecorationCarriedOver,
+        'color' : textColorCarriedOver,'text-underline-position': textUnderLineCarriedOver,'text-decoration-color':textUnderLineColorCarriedOver,
+        'text-decoration-thickness':textthicknessCarriedOver,'text-underline-offset':textoffsetCarriedOver}"  
+        (click)="DemandBreakDownnonCarriedOver();">Carried Over</span>
+      
+    </mat-panel-title>
+
+     
+      <!-- <div class="example-header" style="margin-left: 40%;font-size: 15px;">
+          <span>
+            <span style="font-size: 14px">Demand Type: </span>  
+              <select name="demand_type_value" id="aantal" class="form-control" [(ngModel)]="demand_type_value" (change)="onPageDemandTypeChanged();">
+                <option *ngFor="let demandType of demand_type" [value]="demandType">{{demandType}}</option>
+              </select>
+          </span>
+        </div>  -->
+
+        <mat-grid-list cols="8" rowHeight="69vh" style="margin-top: 10px;">
+            <mat-grid-tile [colspan]="8" [rowspan]="1">
+             
+              <app-ko-demand style="width: 100%"> </app-ko-demand>
+            </mat-grid-tile>
+           
+          </mat-grid-list>
+       </mat-expansion-panel>
+    </mat-accordion>
+  </section>

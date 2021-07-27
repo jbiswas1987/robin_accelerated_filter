@@ -1,0 +1,57 @@
+<section class="bodySection" >
+  <mat-accordion>
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header style="height: 47px;;">
+        <mat-panel-title>
+          <b>Top Products By Demand</b>
+        </mat-panel-title>
+     
+      </mat-expansion-panel-header>
+
+      <mat-progress-bar class="example-margin" color="primary" mode="indeterminate" *ngIf="showLoading">
+      </mat-progress-bar>
+      <span style="margin-right: -5px;float:right;" class="tooltip" data-title="export" >
+        <img style="cursor: pointer;" [src]="download" (click)="downloadexcel()" >
+      </span>
+
+     <span style="margin-right: 20px;float:right;" class="tooltip" data-title="info" >
+       <img style="cursor: pointer;margin-left: 10px;"  [src]="info" (click)="infoDetails()" alt="">
+     </span>
+      
+      <span style="margin-left:25%;font-size: 13px;">Select N for Top N : </span>
+      <select style="margin-left:7px;font-size: 13px;" name="selectedQuantity" id="aantal" class="form-control" [(ngModel)]="selectedQuantity" (change)="onPageSizeChanged();">
+        <option *ngFor="let option of _protolValue" [value]="option">{{option}}</option>
+      </select>
+      <span style="margin-left: 45px;
+      font-weight: bold">
+        |
+      </span>
+      <span style="margin-left:2%;font-size: 13px;">Select Date : </span>
+      <select style="margin-left:1%" name="city" class="rounded-inputs20 select-select col-md-3" (change)="onChange($event.target.value)">
+        <option *ngFor="let currentmontyear of _paretodateFormat"  [value]="currentmontyear.formatMonth">{{currentmontyear.formatYear}}</option>
+    </select>
+
+    <span style="margin-left: 45px;
+    font-weight: bold"> |
+    </span>
+    <span style="margin-left:2%;font-size: 13px;">Selected Range : </span>
+    <input style="width: 27px;border-top-style: hidden;font-weight: bold;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;border-bottom: hidden;font-size: 14px;" type="text" readonly class="form-control" [(ngModel)]="startRange"/>
+    <span> To </span>
+    <!-- <span style="margin-left:2%;font-size: 13px;">Target Sample Range : </span> -->
+    <input style="width: 34px;margin-left: 10px;border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;font-weight: bold;
+    border-bottom-style: groove;border-bottom: hidden;font-size: 14px;" type="text" readonly class="form-control" [(ngModel)]="endRange"/>
+    <hr class="new1">
+    <div class="graphContainer">
+      <div class="chart"  id="chart"></div>
+    </div>
+    
+          
+    </mat-expansion-panel>
+  </mat-accordion>
+</section>
+

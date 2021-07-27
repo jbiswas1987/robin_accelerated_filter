@@ -1,0 +1,110 @@
+<section class="ProtocolDetails bodySection">
+  <mat-accordion>
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <b>Protocol Details</b>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-progress-bar
+        class="progress-bar-margin"
+        color="primary"
+        mode="indeterminate"
+        *ngIf="showLoading"
+      >
+      </mat-progress-bar>
+      <q-grid [rows]="rows$ | async">
+        <q-grid-columns>
+          <q-grid-column
+            key="details"
+            title="Link"
+            type="url"
+            [index]="1"
+            *ngIf="_detailsLinkShow == 'true'"
+          >
+            <!-- [label]="myLabel" -->
+            <ng-template for="body" let-$cell>
+              <a [routerLink]="$cell.value" class="ng-star-inserted">
+                details
+              </a>
+            </ng-template>
+            <ng-template for="body" let-$cell>
+              <a
+                (click)="getSiteProtocolID($cell.value)"
+                class="ng-star-inserted"
+                ><u style="color: blue; cursor: pointer">details</u>
+              </a>
+            </ng-template>
+          </q-grid-column>
+          <q-grid-column
+            key="protocolNumber"
+            title="Protocol Name"
+            type="string"
+          >
+          </q-grid-column>
+          <q-grid-column
+            key="clinicalIndication"
+            title="Indication"
+            type="string"
+            [width]="300"
+          >
+          </q-grid-column>
+          <q-grid-column key="phase" title="Phase" type="string">
+          </q-grid-column>
+          <q-grid-column
+            key="enrollmentStatus"
+            title="Status"
+            type="string"
+            [width]="150"
+          >
+          </q-grid-column>
+          <q-grid-column
+            key="protocolFinalizationDate"
+            title="PF Date"
+            type="date"
+            [width]="150"
+          >
+          </q-grid-column>
+
+          <q-grid-column
+            key="siteScreenCount"
+            title="Screen Count"
+            type="number"
+            [width]="150"
+          >
+          </q-grid-column>
+          <q-grid-column
+            key="siteEnrollmentCount"
+            title="Enrollment Count"
+            type="number"
+            [width]="150"
+            style="text-align: center"
+          >
+          </q-grid-column>
+          <q-grid-column
+            key="siteScreenCycleTime"
+            title="Cycle Time"
+            type="number"
+            [width]="150"
+          >
+          </q-grid-column>
+          <q-grid-column
+            key="siteScreenRate"
+            title="Screen Rate"
+            type="number"
+            [width]="150"
+          >
+          </q-grid-column>
+
+          <q-grid-column
+            key="siteEnrollmentRate"
+            title="Enrollment Rate"
+            type="number"
+            [width]="150"
+          >
+          </q-grid-column>
+        </q-grid-columns>
+      </q-grid>
+    </mat-expansion-panel>
+  </mat-accordion>
+</section>

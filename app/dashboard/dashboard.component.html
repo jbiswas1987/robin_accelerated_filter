@@ -1,0 +1,137 @@
+<!-- <app-dashboard-groups class="bodySection"> </app-dashboard-groups> -->
+<!-- <a  class="dashboardLink" style="color: blue;cursor: pointer;padding: 12px;font-size: 13px;" (click) ="backButtonActivity();"><span><u> Home</u></span> </a> -->
+<ul class="breadcrumb">
+  <li><a (click) ="backButtonActivity();" style="cursor: pointer;">Home</a></li>
+  <li><a>Protocol Dashboard</a></li>
+  <li></li>
+</ul>
+<section>
+  <mat-accordion style="margin-bottom: 2px">
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <b>Protocol List</b>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-progress-bar
+        class="example-margin"
+        color="primary"
+        mode="indeterminate"
+        *ngIf="showLoading"
+      >
+      </mat-progress-bar>
+      <span style="float:right;margin-right:-5px">
+            
+        <!-- <img style="cursor: pointer;" [src]="download" class="btn" (click)="downloadexcel()" alt="">  -->
+        <img style="cursor: pointer;margin-left: 10px;" [src]="info" class="btn" (click)="infoDetails()" alt="">        
+    </span>
+      <q-grid [rows]="rows$ | async">
+        <q-grid-columns>
+          <q-grid-column
+            key="details"
+            title="Link"
+            [label]="myLabel"
+            type="url"
+          >
+            <ng-template for="body" let-$cell>
+              <a (click)="getProtocolID($cell.value)" class="ng-star-inserted"
+                ><u style="color: blue; cursor: pointer">details</u>
+              </a>
+            </ng-template>
+          </q-grid-column>
+          <q-grid-column
+            key="protocolNumber"
+            title="Protocol Name"
+            type="string"
+          >
+          </q-grid-column>
+          <q-grid-column key="nCTID" title="NCT" type="string"> </q-grid-column>
+          <q-grid-column
+            key="protocolFinalizationDate"
+            title="Protocol Finalization Date"
+            type="date"
+          >
+          </q-grid-column>
+          <q-grid-column
+            key="theraputicArea"
+            title="Therapeutic Area"
+            type="string"
+          >
+          </q-grid-column>
+          <q-grid-column
+            key="clinicalIndication"
+            title="Clinical Indication"
+            type="string"
+          >
+          </q-grid-column>
+          <q-grid-column key="phase" title="Phase" type="string">
+          </q-grid-column>
+          <q-grid-column key="numberOfSites" title="Site Count" type="number">
+          </q-grid-column>
+          <q-grid-column
+            key="numberofPlannedSites"
+            title="Planned Site Count"
+            type="number"
+          >
+          </q-grid-column>
+          <q-grid-column
+            key="numberOfCountries"
+            title="Country Count"
+            type="number"
+          >
+          </q-grid-column>
+          <q-grid-column
+            key="numberofPatientsEnrolled"
+            title="Enrollment Count"
+            type="number"
+          >
+          </q-grid-column>
+          <q-grid-column
+            key="numberofPlannedEnrollments"
+            title="Planned Enrollment Count"
+            type="number"
+          >
+          </q-grid-column>
+          <!-- <q-grid-column key="screenCount" title="Screen Count" type="number">
+          </q-grid-column> -->
+          <q-grid-column
+            key="enrollmentStatus"
+            title="Enrollment Status"
+            type="string"
+          >
+          </q-grid-column>
+          <q-grid-column key="cTGStatus" title="Ctg Status" type="string">
+          </q-grid-column>
+          <q-grid-column key="numberOfArms" title="Arm Count" type="string">
+          </q-grid-column>
+          <q-grid-column key="studyType" title="Study Type" type="string">
+          </q-grid-column>
+          <q-grid-column key="allocation" title="Allocation" type="string">
+          </q-grid-column>
+          <q-grid-column
+            key="interventionModel"
+            title="Intervention Model"
+            type="string"
+          >
+          </q-grid-column>
+          <q-grid-column key="masking" title="Masking" type="string">
+          </q-grid-column>
+        </q-grid-columns>
+      </q-grid>
+    </mat-expansion-panel>
+  </mat-accordion>
+</section>
+<!-- <app-overview-kits-in-kits-out class="bodySection"></app-overview-kits-in-kits-out>
+<app-protocol-kits-in-kits-out class="bodySection"></app-protocol-kits-in-kits-out>
+<app-country-kits-inkits-out class="bodySection"></app-country-kits-inkits-out> -->
+<app-dashboard-metrics class="bodySection"></app-dashboard-metrics>
+<app-site-details class="bodySection"></app-site-details>
+
+<app-dashboard-protocol-metrics class="bodySection"></app-dashboard-protocol-metrics>
+<app-dashboard-groups class="bodySection"> </app-dashboard-groups>
+<!-- <app-kits-break-down class="bodySection"></app-kits-break-down>  -->
+<!-- <app-protocol-kits-in-kits-out-scatter class="bodySection"></app-protocol-kits-in-kits-out-scatter> -->
+<!-- <header></header> -->
+<!-- <app-chart-distribution class="bodySection">
+
+</app-chart-distribution> -->

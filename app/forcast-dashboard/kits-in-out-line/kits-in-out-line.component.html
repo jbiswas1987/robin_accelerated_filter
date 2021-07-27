@@ -1,0 +1,36 @@
+<!-- <mat-progress-bar class="example-margin" color="primary" mode="indeterminate" *ngIf="showLoading">
+</mat-progress-bar>
+
+<div class="graphContainer" style="padding-top: 10px;">
+      <span style="margin:12px;margin-left: 1%;"><b>Kits-In/Kits-Out</b></span>
+      <div>
+            <span>
+
+            </span>
+
+      </div>
+
+      <div echarts [options]="chartOption" [theme]="macarons" (chartClick)="onpieselected($event)" class="performance-chart"
+            (chartInit)="onChartInit($event)"></div>
+</div> -->
+
+<section class="bodySection">
+            <mat-accordion>
+              <mat-expansion-panel style="background-color: none;" [expanded]="true">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    <b>Kits-In/Kits-Out</b>         
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-progress-bar
+                class="example-margin"
+                color="primary"
+                mode="indeterminate" style="width: 50%;" *ngIf ="showLoading">
+              </mat-progress-bar >  
+              <div echarts [options]="chartOption" [theme]="macarons" (chartClick)="onpieselected($event)" class="performance-chart"
+              (chartInit)="onChartInit($event)"></div>
+                             
+              
+              </mat-expansion-panel>
+            </mat-accordion>
+          </section>

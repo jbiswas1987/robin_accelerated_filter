@@ -1,0 +1,66 @@
+
+<mat-toolbar class="header">
+  <span class="colorWithSize brandAndLogoutAlign">
+    <img [src]="logo" class="image-width"/>
+  </span>
+  <section class="sponsor-spacer" *ngIf="headerHide === false">
+    <span class="colorWithSize">Sponsor : </span>
+    <mat-form-field class="colorWithSize">
+
+      <mat-select
+        [disabled]="!sponsorChangeVisible()"
+        [placeholder]="selectedSponsor"
+        [(ngModel)]="selectedSponsor"
+        (ngModelChange)="onSponsSelection()"
+      >
+        <mat-option *ngFor="let spons of Sponsors" [value]="spons">
+          {{ spons }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </section>
+
+  <span *ngIf="_headerStatus === 'true' || _headerStatusSupplier === 'true' " style="margin-left:20%;position: relative;">
+    <span class="colorWithSize">Sponsor Name : </span>
+    <!-- <select style="background-color: #005d78;color: white;height: 25px;border: none;border-bottom: 2px solid white;width: 35%;" name="sponsorSelect" id="aantal" class="form-control" [(ngModel)]="sponsorSelect" (change)="onsponsornameChanged();">
+      <option style="background-color: white;color:#000000;margin: 5px;padding: 5px;" *ngFor="let option of sponsorList" [value]="option">{{option}}</option>
+    </select> -->
+
+    <!-- <input type="text" [(ngModel)]="sponsorSelect" (ngModelChange)="getFilteredList()" class="combobox-input" (keyup)="onKeyPress($event)" (blur)="toggleListDisplay(0)" (focus)="toggleListDisplay(1)" placeholder="Select one..." [ngClass]="{'error': showError}">
+    <span *ngIf="showError" class="error-text"><i>Invalid Selection.</i></span>
+    <div class="combobox-options" *ngIf="!listHidden">
+      <list-item *ngFor="let item of filteredList;let i = index" (click)="selectItem(i)" [ngClass]="{'selected': i===selectedIndex}">{{item}}</list-item>
+    </div> -->
+
+
+  <ng-autocomplete
+    #autoComplete
+    [data]="list"
+    [searchKeyword]="keyword"
+    placeholder="Search.."
+    [(ngModel)]="sponsorSelect"
+    (selected)='onsponsornameChanged($event)' 
+    (inputFocused)='onFocused($event)'
+    (focusout)="onFocusedout()"  
+    [itemTemplate]="itemTemplate"
+    [notFoundTemplate]="notFoundTemplate">
+  </ng-autocomplete>
+  <ng-template #itemTemplate let-item>
+    <a [innerHTML]="item.name"></a>
+  </ng-template>
+  <ng-template class="notfound" #notFoundTemplate let-notFound>
+      <div class="notfound" [innerHTML]="notFound"></div>
+  </ng-template>
+  </span>
+
+  <span class="example-spacer"></span>
+  <button
+    mat-icon-button
+    class="log-out"
+    aria-label="logout icon button"
+    (click)="onLogout()"
+    title="Logout"
+  >
+    <mat-icon>input</mat-icon>
+  </button>
+</mat-toolbar>

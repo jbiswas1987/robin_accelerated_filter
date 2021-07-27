@@ -1,0 +1,251 @@
+.header {
+  background-color: #005d78;
+  position: relative;
+  height: 52px;
+  z-index: 2;
+}
+
+.colorWithSize {
+  color: white;
+  font-size: smaller;
+}
+
+.brandAndLogoutAlign {
+  margin-bottom: 5px;
+}
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.heading {
+  font-size: small;
+}
+
+.mat-toolbar {
+  background: #005d78;
+  height: 52px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.sponsor-spacer {
+  /* margin-left: 44%; */
+  /* find out the center of the header section using viewport width
+     and substract the width of the Brand label, Sponsor label and sponsor dropdown width 
+  
+  75px = width of sponsor label
+  180px = width of dropdown
+  -- 180px + 75px => 255px / 2 => 128px 
+  43px = width of Brand name label
+  16px = padding of the header 
+  -- 43px + 16px => 59px
+  */
+
+  margin-left: calc(40vw - 128px - 59px) !important;
+}
+
+.app-logo {
+  background: transparent url("../../assets/logo.png") no-repeat left center;
+  background-size: 178px 38px;
+  margin-top: 0px;
+  margin-right: 8px;
+  height: 100%;
+  width: 237px;
+  float: left;
+}
+
+.app-branding {
+  line-height: 52px;
+  font-family: Lato;
+  display: inline-block;
+  font-size: 18px;
+  color: #ffffff;
+  height: 100%;
+}
+footer {
+  height: 32px;
+  background-color: #005d78;
+  position: relative;
+  top: 0.3vh;
+  bottom: 0vh;
+}
+::ng-deep .mat-form-field-label {
+  display: none !important;
+}
+
+.log-out {
+  margin-bottom: 5px;
+  color: white;
+}
+
+.image-width{
+   width: 150px; 
+   margin-top: 10px;
+  /* margin-top: 15px;
+  height: 45px; */
+}
+option {
+  width:15% !important;
+}
+
+/* -------------------------------- */
+
+.combobox {
+  
+  margin: auto;
+}
+
+.combobox-input {
+
+  width: 241px;
+  border: none;
+  padding: 13px;
+  font-size: 14px;
+  border-bottom: 2px solid #FFFFFF;
+  background-color: #005d78;
+  color: #FFFFFF;
+  margin-left: 14px;
+}
+
+.combobox-input:focus{
+
+  outline-style: none;
+}
+
+.combobox-options {
+
+  position: absolute;
+  text-align: left;
+  background-color: white;
+  width: 300px;
+  max-height: 200px;
+  overflow-y: auto;
+  box-shadow: 1px 1px 1px px #ccc;
+  z-index: 1;
+  font-weight: normal;
+  font-size: 12px;
+  margin-left: 28%
+}
+
+.selected {
+
+  color: #000000;
+  font-size: 14px;
+  background-color: #FFFFFF
+}
+
+list-item{
+
+  display: block;
+  font-size: 13px;
+  padding: 10px;
+  font-weight: normal;
+}
+
+list-item:hover{
+
+  background-color: grey;
+  color: white;
+}
+
+.error-text{
+
+  color: rgb(165, 112, 112);
+}
+
+.error{
+  border: 1px solid red;
+}
+
+.ng-autocomplete {
+  width: 95%;
+    /* max-width: 410px; */
+    display: inline-block;
+    margin: 0 auto;
+    margin-left: 3%;
+    margin-top: -35px;
+    color: #FFFFFF;
+}
+
+::ng-deep .ng-autocomplete {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 600px;
+  display: table;
+}
+
+::ng-deep .autocomplete-container .input-container input {
+  font-size: 13px;
+  height: 100px;
+  background-color: black;
+  color: white;
+  
+}
+
+::ng-deep .autocomplete-container .input-container .x i {
+  /* color: rgba(0,0,0,.54); */
+  font-size: 22px;
+  vertical-align: middle;
+}
+
+:host ::ng-deep .autocomplete-container .input-container input {
+  font-size: 13px !important;
+  border-bottom: 1px solid;
+  background: transparent !important;
+  background-color: transparent !important;
+  margin: 0 !important;
+  height: 44px !important;
+  line-height: 44px !important;
+  box-shadow: none !important;
+  color: #FFFFFF !important;
+ 
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #909090 !important;;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #909090 !important;;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #909090 !important;;
+}
+
+
+::placeholder {
+  color: #909090;
+  font-size: 1.5em;
+}
+
+.product-level::placeholder {
+  color: #909090;
+  font-size: 1.5em;
+}
+::ng-deep .autocomplete-container .not-found div {
+  font-size: 13px;
+  width: 95% !important;
+  background-color: #005d78 !important;
+  color: #FFFFFF !important;
+  position: absolute !important
+}
+
+.notfound{
+  font-size: 13px !important;
+  border-bottom: 2px solid #FFFFFF !important;
+  background-color: #005d78 !important;
+  color: #FFFFFF !important;
+  position: absolute !important
+}

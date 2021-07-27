@@ -1,0 +1,49 @@
+<section class="bodySection">
+  <mat-accordion>
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <b>Site Metrics</b>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-grid-list cols="5" rowHeight="{{ rowheight }}">
+          <span style="margin-left:450px;">
+              <img style="cursor: pointer;" [src]="info" class="btn" (click)="info_dispay_sitsenroll()" alt="">        
+         </span>
+        <mat-grid-tile [colspan]="2" [rowspan]="siteSunRowspan"  style="padding-left: 10px;left: 25px;margin-left: 20px;margin-top: 18px">
+          <!-- <img style="cursor: pointer;margin-left: 10px;" [src]="info" class="btn" (click)="info_dispay_siteenroll()" alt="">  -->
+          <!-- [style.background]="blue" -->
+          <app-protocol-site-sun style="padding-left: 10px;left: 25px;margin-left: 20px"
+            #enrollment
+            [chartname]="isEnrollment"            
+                      ></app-protocol-site-sun>
+        </mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <span style="float:right;margin-right:-5px">
+             <img style="cursor: pointer;margin-right: 112px;" [src]="info" class="btn" (click)="info_dispay_sitescreen()" alt="">        
+        </span>
+        <mat-grid-tile [colspan]="2" [rowspan]="siteSunRowspan" style="margin-top: 18px">
+            
+          <!-- [style.background]="blue" -->
+          <app-protocol-site-sun
+            #screen
+            [chartname]="isScreen"
+          
+          ></app-protocol-site-sun>
+        </mat-grid-tile>
+        <!-- (onpieselectedOut)="onpieselected($event)" -->
+        <!-- (onpieselectedOut)="onpieselected($event)" -->
+        <!-- <app-dashboard-site-table #siteTable></app-dashboard-site-table> -->
+        <!-- <mat-grid-tile
+          [colspan]="3"
+          [rowspan]="siteTableRowspan"
+          class="siteTable"
+        >
+       
+        
+        </mat-grid-tile> -->
+         <!-- <app-dashboard-site-table #siteTable></app-dashboard-site-table> -->
+      </mat-grid-list>
+    </mat-expansion-panel>
+  </mat-accordion>
+</section>

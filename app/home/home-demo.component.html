@@ -1,0 +1,88 @@
+<div class="container background">
+        <img style="position: fixed;
+       
+        min-width: 100%;
+        min-height: 100%;
+        left: 0;
+        top: 0;
+        pointer-events: none;" [src]="banner" />
+       
+
+        <div class="row" style="margin-top: 6%">
+          <div class="col-sm-4" style="margin-left: 22%">
+                <figure style=" border-color: #4863A0;" >
+                        <img [src]="blockPortfolio" width="100" style="width: 23%;border-radius: 2px; border: 1px solid #4863A0;position: fixed;" />
+                        <!-- <figcaption style="margin-top: 12%;padding: 4px; width: 21%;font-size: 18px;background-color: #4863A0;height: 30px;color: white;position: fixed;">Performance</figcaption> -->
+                        <figcaption style="margin-top: 12%;padding: 12px;
+                        width: 23%;
+                        font-size: 15px;
+                        background-color: #4863A0;
+                        height: 45px;
+                        color: white;
+                        position: fixed;" >
+                        Performance<img (click)="performanceDashBoard();" style="float: right;padding: 0px;cursor: pointer;width: 26px;height: 27px;" [src]="skip"/>
+                        <img (click)="performanceDashBoardinfo();" style="float: right;padding: 0px;cursor: pointer;width: 26px;height: 27px;padding: 4px;" [src]="info"/>
+                </figcaption>
+    
+                </figure>
+          </div>
+          <div class="col-sm-4" style="margin-left: 48%">
+
+                <figure style=" border-color: #4863A0;" >
+                        <img [src]="forecastPortfolio" width="100" style="width: 23%;border-radius: 2px; border: 1px solid #4863A0;position: fixed;" />
+                        <figcaption style="margin-top: 12%;padding: 10px;
+                        width: 23%;
+                        font-size: 15px;
+                        background-color: #4863A0;
+                        height: 45px;
+                        color: white;
+                        position: fixed;" >Forecasting<img (click)="forCastingDashBoard();" style="float: right;padding: 0px;cursor: pointer;width: 26px;height: 27px;" [src]="skip"/>
+                          <img (click)="forCastingDashBoardinfo();" style="float: right;padding: 0px;cursor: pointer;width: 26px;height: 27px;padding: 4px" [src]="info"/>        
+                </figcaption>
+    
+                </figure>
+          </div>
+        </div>
+        <div class="row" style="margin-top: 17%">
+                        <div class="col-sm-4" style="margin-left: 22%">
+                              <figure style=" border-color: #4863A0;" >
+                                      <img [src]="ko_demand" width="100" style="width: 23%;border-radius: 2px; border: 1px solid #4863A0;position: fixed;" />
+                                      <!-- <figcaption style="margin-top: 12%;padding: 4px; width: 21%;font-size: 18px;background-color: #4863A0;height: 30px;color: white;position: fixed;">Performance</figcaption> -->
+                                      <figcaption style="margin-top: 12%;
+                                      font-size: 16px;
+                                      width: 23%;
+                                      font-size: 15px;
+                                      background-color: #4863A0;
+                                      height: 45px;
+                                      color: white;
+                                      position: fixed;
+                                      padding: 5px;
+                                      padding-top: 11px;" >Kit Demand Analysis: Historical Data<img (click)="koAnalysis();" style="float: right;padding: 0px;cursor: pointer;width: 26px;height: 27px;" [src]="skip"/>
+                                <img (click)="koAnalysisinfo();" style="float: right;padding: 0px;cursor: pointer;width: 26px;height: 27px;padding: 4px" [src]="info"/>      
+                                </figcaption>
+                  
+                              </figure>
+                        </div>
+                        <div class="col-sm-4" style="margin-left: 48%">
+              
+                              <figure style=" border-color: #4863A0;" >
+                                      <img [src]="ko_supplier" width="100" style="width: 23%;border-radius: 2px; border: 1px solid #4863A0;position: fixed;" />
+                                      <figcaption style="margin-top: 12%;padding: 12px;
+                                      width: 23%;
+                                      font-size: 15px;
+                                      background-color: #4863A0;
+                                      height: 45px;
+                                      color: white;
+                                      position: fixed;" >Kit Components Forecast<img (click)="koSupplier();" style="float: right;padding: 0px;cursor: pointer;width: 26px;height: 27px;" [src]="skip"/>
+                                    <img (click)="koSupplierinfo();" style="float: right;padding: 0px;cursor: pointer;width: 26px;height: 27px;padding: 4px" [src]="info"/>      
+  
+                                    </figcaption>
+                  
+                              </figure>
+                        </div>
+              
+                    
+                      </div>
+       
+      </div>
+

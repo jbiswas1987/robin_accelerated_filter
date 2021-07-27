@@ -1,0 +1,17 @@
+<mat-progress-bar
+  class="example-margin"
+  color="primary"
+  mode="indeterminate"
+  *ngIf="showLoading"
+>
+</mat-progress-bar>
+<div class="graphContainer">
+  <div
+    echarts
+    style="height: 80%"
+    [options]="option"
+    class="demo-chart"
+    (chartInit)="onChartInit($event)"
+    (chartClick)="onpieselected($event)"
+  ></div>
+</div>

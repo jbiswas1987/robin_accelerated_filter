@@ -1,0 +1,36 @@
+<section class="ProtocolMetrics bodySection">
+    <mat-accordion>
+      <mat-expansion-panel [expanded]="true" >
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <b>Kits In/Out Performance</b>
+          </mat-panel-title>   
+         
+        </mat-expansion-panel-header> 
+        <!-- <mat-slide-toggle style="margin-left: 600px;"
+        [(ngModel)]="myFlagForSlideToggle" 
+         (click)='toggle(myFlagForSlideToggle)'>
+        </mat-slide-toggle>      -->
+        
+        
+        <!-- <div>
+          <span class="tooltip" data-title="Bar Graph">
+              <img style="margin-left: 600px;width: 20px;cursor: pointer;" [src]="barImage"  (click)="gridKitscastData();"/>
+          </span>
+          <span class="tooltips" data-title="Data View">
+              <img style="padding-left: 15px;width: 20px;cursor: pointer;" [src]="dataGridImage"  (click)="tableKitscastData();"/>
+          </span>
+        </div> -->
+
+        <mat-grid-list cols="4" rowHeight="58vh" style="margin-top: 10px;top: 5px;">
+              <mat-grid-tile [colspan]="4" [rowspan]="1">
+                <app-forcast-kits-in-bar-graph *ngIf="!toggleBar"  ></app-forcast-kits-in-bar-graph>
+                <app-forcast-kits-outbar-graph *ngIf="toggleBar" ></app-forcast-kits-outbar-graph>
+              </mat-grid-tile>
+             
+            </mat-grid-list>
+           
+           </mat-expansion-panel>
+      </mat-accordion>
+    </section>
+  

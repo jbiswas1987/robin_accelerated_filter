@@ -1,0 +1,190 @@
+
+
+<section class="bodySection">
+  <mat-accordion>
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <b>Site Details</b>
+         
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <img style="cursor: pointer;" [src]="info" (click)="infoDetails()" alt="">
+     <!-- <span style="float:right;margin-right:-5px">
+        <img style="cursor: pointer;margin-left: 10px;" [src]="info" (click)="infoDetails()" alt="">        
+     </span> -->
+     
+      <mat-progress-bar
+      class="example-margin"
+      color="primary"
+      mode="indeterminate" style="width: 50%;" *ngIf ="showLoadingForMap">
+    </mat-progress-bar >
+    <!-- <span style="float:right;margin-right:-5px">
+        <img style="cursor: pointer;margin-left: 10px;" [src]="info" class="btn" (click)="infoDetails()" alt="">        
+     </span> -->
+  
+      <mat-grid-list cols="6" style="height: 38vh;margin-top: 13px;" *ngIf = "!Isexpand_map">
+         
+        <mat-grid-tile [colspan]="3" style="height: 60vh" [rowspan]="siteSunRowspan" >
+           
+            
+            <!-- <ngx-spinner></ngx-spinner> -->
+          <!-- (zoomChange)="zoomChange($event)" -->
+          <!-- [fitBounds]="false" [disableDefaultUI]="false" [zoom]="zoom" [fitBounds]="true"  (mapClick)="mapClicked($event)" -->
+          <!-- (zoomChange)="zoomChange($event,m)" -->
+          <agm-map #AgmMap style="width: 100%;height: 70vh;" [latitude]="lat" [longitude]="lng" [disableDefaultUI]="false" [zoom]="zoom"  
+           (mouseOver)="onMouseOver(m)" #gm 
+            [zoomControl]="true"  [mapTypeId]="'roadmap'" 
+             (boundsChange)="checkMarkersInBounds($event)"  (centerChange)="centerChange($event,m)"
+             [scaleControl]="true"  (zoomChange)="zoomChange($event)" 
+             [fitBounds]="true"
+            [zoomControlOptions]="zoomControlOptions"
+            [fullscreenControl]="true"
+            [fullscreenControlOptions]="fullscreenControlOptions" >
+             
+            <agm-marker-cluster  imagePath="https://raw.githubusercontent.com/googlearchive/js-marker-clusterer/gh-pages/images/m">
+              <!-- [iconUrl]="'/assets/icon/bubble.png'" -->
+              <!-- (markerClick)="clickedMarker(m.label, i)"  [iconUrl]="'/assets/icon/map_bubble.png'"-->
+            <agm-marker *ngFor="let m of markers; let i = index" (markerClick)="clickedMarker(m, $event)" 
+              [latitude]="m.lat" [longitude]="m.lng"  [markerDraggable]="m.draggable" (dragEnd)="markerDragEnd(m, $event)"
+              (mouseOver)="onMouseOver(infoWindow,m.ongoingProtocols,m.activePhysicians,m.city,m.country,m.zip, i,m.enrLowPerformerSiteCount, m.enrHighPerformerSiteCount,m.scrLowPerformerSiteCount,m.scrHighPerformerSiteCount,m.scrMediumPerformerSiteCount,m.scrNonPerformerSiteCount,m.enrMediumPerformerSiteCount,m.enrNonPerformerSiteCount)"  (mouseOut)="onMouseOut(infoWindow, $event)" 
+              [iconUrl]= "markerImage" [agmFitBounds]="true"
+            >
+              <!-- (zoomChange)="zoomChange($event,m)"  [agmFitBounds]="true"   [iconUrl]= "'./assets/icon/bubble_new.png'"   -->
+              <agm-info-window #infoWindow >
+                <div >
+                  <span style="color: black">No of on-going Protocols :<strong> {{onGoingProtocols}}</strong> </span><br>
+                  <span style="color: black">No of active physicians :<strong> {{activePhysicians}}</strong> </span><br>
+                  <span style="color: black">City : <strong> {{detailscity}}</strong> </span><br>
+                  <span style="color: black">Country :<strong> {{detailscountry}}</strong> </span><br>
+                  <span style="color: black">Zip :<strong> {{details_info}}</strong> </span><br>
+                  <span style="color: black">Enrollment performance Low  :<strong> {{enrLowPerformerSiteCount}}</strong> </span><br>
+                  <span style="color: black">Enrollment performance High  :  <strong>{{enrHighPerformerSiteCount}}</strong> </span><br>
+                  <span style="color: black">Enrollment medium  performance:  <strong>{{enrMediumPerformerSiteCount}}</strong> </span><br> 
+                  <span style="color: black">Enrollment non performance  :  <strong>{{enrNonPerformerSiteCount}}</strong> </span><br>
+                  <span style="color: black">Screening performance Low  : <strong>{{scrLowPerformerSiteCount}}</strong> </span><br>
+                  <span style="color: black">Screening performance High :  <strong>{{scrHighPerformerSiteCount}}</strong> </span><br>
+                  <span style="color: black">Screening medium performance :  <strong>{{scrMediumPerformerSiteCount}}</strong> </span><br> 
+                  <span style="color: black">Screening non performance  :  <strong>{{scrNonPerformerSiteCount}}</strong> </span><br> 
+                  
+                </div>
+               
+                
+              </agm-info-window>
+              <!-- [agmFitBounds]="true" -->
+
+            </agm-marker>
+            <!-- <agm-circle  *ngIf="isagm_circel" [latitude]="lat+ .9" [longitude]="lng" [radius]="5000" [fillColor]="'red'" [circleDraggable]="true"
+             (centerChange)="centerChange($event,m)">
+            </agm-circle> -->
+
+            <agm-circle *ngIf="isagm_circel" [latitude]="lat+ 0.3" [longitude]="lng" [radius]="1000" [fillColor]="'red'"
+            [circleDraggable]="true" [editable]="true" (dragEnd)="radiusDragEnd($event)"
+            (radiusChange)="event('radiusChange',$event)"  (centerChange)="centerChange($event,m)">
+            </agm-circle>
+
+            
+
+            <div style="border: 1px solid black; position: absolute; 
+            background-color: white; text-align: center; width: 5em; cursor: pointer; right: 15.3em;"
+              title="Show street map">
+            </div>
+            </agm-marker-cluster>
+            
+          </agm-map>
+
+          <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+          <img [src] ="loader" *ngIf="!isLoading" class="loader">
+          <!-- <img [src]="refreshImage" class="btn" (click)="refresh()" alt=""> -->
+          <!-- <span class="text" *ngIf="!isLoading" style="color: black;font-size: 18px;font-weight: bold">Please wait for few sec. Markers are being plotted on the map.</span> -->
+          <img [src]="refreshImage" class="btn" (click)="refresh()" alt="">
+          <!-- <img [src]="expandImage" class="select" (click)="expand_map()" alt=""> -->
+          <img [src]="filterImage" class="more" (click)="zoomLevelFilter()" alt="">
+          <!-- <button (click)="refresh()" class="select"></button>
+          <button (click)="expand_map()" class="btn"></button>
+          <button (click)="zoomLevelFilter()" class="more"></button> -->
+          
+
+        </mat-grid-tile>
+        
+        <mat-grid-tile [colspan]="3"  class="siteTable" style="margin-left: 10px;width: 90%;height: 42vh;top:-50px;position: relative;display: inline-flex" [rowspan]="siteSunRowspan">
+          
+          <app-dashboard-site-table style="min-height: 0px;margin-bottom: 30px;max-height: 0px;"></app-dashboard-site-table>
+          
+        </mat-grid-tile>
+
+
+      </mat-grid-list>
+      <mat-grid-list cols="6" style="height: 50vh" *ngIf = "Isexpand_map">
+         
+        <mat-grid-tile [colspan]="6" style="height: 65vh">
+            <!-- [fitBounds]="true" -->
+          <agm-map style="width: 100%;height: 72vh;" [latitude]="lat" [longitude]="lng" [disableDefaultUI]="false" [zoom]="zoom"  
+           (mouseOver)="onMouseOver(m)" #gm  
+            [zoomControl]="true"  [mapTypeId]="'roadmap'" 
+             (boundsChange)="checkMarkersInBounds($event)" 
+             [scaleControlOptions]="scaleControlOptions" 
+             [scaleControl]="true"  >
+            <agm-marker-cluster  imagePath="https://raw.githubusercontent.com/googlearchive/js-marker-clusterer/gh-pages/images/m">
+             <!-- [iconUrl]="'/assets/icon/bubble.png'" -->
+             <!-- (markerClick)="clickedMarker(m.label, i)"  [iconUrl]="'/assets/icon/map_bubble.png'"-->
+           <agm-marker *ngFor="let m of markers; let i = index" (markerClick)="clickedMarker(m, $event)" 
+             [latitude]="m.lat" [longitude]="m.lng"  [markerDraggable]="m.draggable" (dragEnd)="markerDragEnd(m, $event)"
+             (mouseOver)="onMouseOver(infoWindow,m.ongoingProtocols,m.activePhysicians,m.city,m.country,m.zip, i,m.enrLowPerformerSiteCount, m.enrHighPerformerSiteCount,m.scrLowPerformerSiteCount,m.scrHighPerformerSiteCount,m.scrMediumPerformerSiteCount,m.scrNonPerformerSiteCount,m.enrMediumPerformerSiteCount,m.enrNonPerformerSiteCount)"  (mouseOut)="onMouseOut(infoWindow, $event)" 
+             (zoomChange)="zoomChange($event,m)" [agmFitBounds]="true" 
+             [iconUrl]= "markerImage" 
+             >
+             <agm-info-window #infoWindow>
+              <div>
+                <span style="color: black">No of on-going Protocols :<strong> {{onGoingProtocols}}</strong> </span><br>
+                <span style="color: black">No of active physicians :<strong> {{activePhysicians}}</strong> </span><br>
+                <span style="color: black">City : <strong> {{detailscity}}</strong> </span><br>
+                <span style="color: black">Country :<strong> {{detailscountry}}</strong> </span><br>
+                <span style="color: black">Zip :<strong> {{details_info}}</strong> </span><br>
+                <span style="color: black">Enrollment performance Low  :<strong> {{enrLowPerformerSiteCount}}</strong> </span><br>
+                <span style="color: black">Enrollment performance High  :  <strong>{{enrHighPerformerSiteCount}}</strong> </span><br>
+                <span style="color: black">Enrollment medium  performance:  <strong>{{enrMediumPerformerSiteCount}}</strong> </span><br> 
+                <span style="color: black">Enrollment non performance  :  <strong>{{enrNonPerformerSiteCount}}</strong> </span><br>
+                <span style="color: black">Screening performance Low  : <strong>{{scrLowPerformerSiteCount}}</strong> </span><br>
+                <span style="color: black">Screening performance High :  <strong>{{scrHighPerformerSiteCount}}</strong> </span><br>
+                <span style="color: black">Screening medium performance :  <strong>{{scrMediumPerformerSiteCount}}</strong> </span><br> 
+                <span style="color: black">Screening non performance  :  <strong>{{scrNonPerformerSiteCount}}</strong> </span><br> 
+                
+              </div>
+               
+             </agm-info-window>
+             <!-- [agmFitBounds]="true" -->
+
+           </agm-marker>
+           <!-- <agm-circle  *ngIf="isagm_circel" [latitude]="lat+ .9" [longitude]="lng" [radius]="5000" [fillColor]="'red'" [circleDraggable]="true"
+            (centerChange)="centerChange($event,m)">
+           </agm-circle> -->
+
+           <agm-circle *ngIf="isagm_circel" [latitude]="lat+ 0.3" [longitude]="lng" [radius]="1000" [fillColor]="'red'"
+           [circleDraggable]="true" [editable]="true" (dragEnd)="radiusDragEnd($event)"
+           (radiusChange)="event('radiusChange',$event)"  (centerChange)="centerChange($event,m)">
+           </agm-circle>
+
+           
+
+           <div style="border: 1px solid black; position: absolute; 
+           background-color: white; text-align: center; width: 5em; cursor: pointer; right: 15.3em;"
+             title="Show street map">
+           </div>
+           </agm-marker-cluster>
+         </agm-map>
+        
+         <!-- <button (click)="refresh()" class="select"></button> -->
+         <!-- <button (click)="expand_map()" class="btn"></button> -->
+         <!-- <button (click)="zoomLevelFilter()" class="more"></button> -->
+         <img [src]="collapseImage" class="collapse" (click)="collapse_map()" alt="">
+         <!-- <img [src]="expandImage" class="select" (click)="refresh()" alt="">
+         <img [src]="filterImage" class="more" (click)="zoomLevelFilter()" alt="">
+        <button (click)="collapse_map()" class="collapse"></button> -->
+        </mat-grid-tile>
+        </mat-grid-list>
+    </mat-expansion-panel>
+  </mat-accordion>
+</section>
+

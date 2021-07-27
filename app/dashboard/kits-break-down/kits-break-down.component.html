@@ -1,0 +1,51 @@
+<section class="bodySection">
+    <mat-accordion>
+      <mat-expansion-panel [expanded]="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <b>Kits Breakdown</b>
+          </mat-panel-title>
+          <div>
+              <mat-panel-title style="margin-left: -30%;">
+                  <button style="margin-left: -90%;border-radius: 5px;">Kits In</button>
+                  <button style="margin-left: 10px;border-radius: 5px;">Kits Out</button>
+                  <span style="margin-left: 30px;"> | </span>
+                  <button style="margin-left: 50px;border-radius: 5px;">Actual</button>
+                  <button style="margin-left: 10px;border-radius: 5px;">Forcast</button>
+                 </mat-panel-title>
+
+
+          </div>
+
+          <!-- <mat-panel-title style="margin-left: -75%;">
+             <button>Kits In</button>
+             <button style="margin-left: 20px;">Kits Out</button>
+            </mat-panel-title> -->
+
+            <!-- <mat-panel-title >
+                <button>Actual</button>
+                <button style="margin-left: 20px;">Forcast</button>
+               </mat-panel-title> -->
+        </mat-expansion-panel-header>
+
+        
+        <mat-progress-bar
+          class="example-margin"
+          color="primary"
+          mode="indeterminate"
+          *ngIf="showLoading"
+        >
+        </mat-progress-bar>
+       
+        <div
+        echarts
+        [options]="chartOptionTA"
+        class="demo-chart"
+        (chartInit)="onChartInit($event)"
+        [loading]="true"
+      ></div>
+
+      </mat-expansion-panel>
+    </mat-accordion>
+  </section>
+      
