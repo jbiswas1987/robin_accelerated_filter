@@ -230,10 +230,29 @@
    color: white;
    height: 100px;
    position: fixed;
-   margin-left: -10px;
+   @media only screen and (min-width: 1200px) {
+    margin-left: -10px;
+   }
+   @media only screen and (min-width: 1900px) {
+    margin-left: 10px;
+   }
+   @media only screen and (min-width: 3800px) {
+    margin-left: 90px;
+   }
    margin-top: 250px;
    border-radius: 10px;
    z-index: 1;
+}
+.rotate-mat-drawer-open {
+  @media only screen and (min-width: 1200px) {
+   margin-left: -20px;
+  }
+  @media only screen and (min-width: 1900px) {
+   margin-left: -5px;
+  }
+  @media only screen and (min-width: 3800px) {
+   margin-left: 60px;
+  }
 }
 .graphContainer {
   // padding-left: 10px;
@@ -296,10 +315,13 @@
      color: white;
      height: 100px;
      position: fixed;
-     margin-left: 60px;
+     margin-left: 90px;
      margin-top: 400px;
      border-radius: 10px;
      z-index: 1;
+    }
+    .rotate-mat-drawer-open {
+     margin-left: 60px;
     }
   }
   @media only screen and (height: 969px) {
@@ -315,3 +337,14 @@
     height: 92.2%;
   }
 
+  .mat-drawer-width {
+    @media only screen and (min-width: 1200px) {
+      width: 23%;
+     }
+     @media only screen and (min-width: 1900px) {
+      width: 20%;
+     }
+     @media only screen and (min-width: 3800px) {
+      width: 15%;
+     }
+  }

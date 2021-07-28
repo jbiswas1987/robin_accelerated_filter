@@ -27,7 +27,15 @@ h1 {
 }
 .all-toggle{
   float: left;
-  margin-left: 65px; 
+  @media only screen and (min-width: 1200px) {
+    margin-left: 65px;
+   }
+   @media only screen and (min-width: 1900px) {
+    margin-left: 100px;
+   }
+   @media only screen and (min-width: 3800px) {
+    margin-left: 140px;
+   }
   color: #005d78; 
   font-size: 15px;
   //font-weight: bold;
@@ -37,7 +45,15 @@ h1 {
 }
 .accelerated-toggle{
   float: Right;
-  margin-right: 30px;
+  @media only screen and (min-width: 1200px) {
+    margin-right: 30px;
+   }
+   @media only screen and (min-width: 1900px) {
+    margin-right: 60px;
+   }
+   @media only screen and (min-width: 3800px) {
+    margin-right: 200px;
+   } 
   color: #005d78;
   font-size: 15px;
  // font-weight: bold;
@@ -321,7 +337,7 @@ input[type=text] {
   }
   .all-toggle{
     float: left;
-    margin-left: 30%; 
+    margin-left: 35%; 
     color: #005d78; 
     font-size: 15px;
     //font-weight: bold;
@@ -331,7 +347,7 @@ input[type=text] {
   }
   .accelerated-toggle{
     float: Right;
-    margin-right: 15%;
+    margin-right: 30%;
     color: #005d78;
     font-size: 15px;
    // font-weight: bold;

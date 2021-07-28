@@ -22,8 +22,8 @@
   <mat-drawer-container (click)="stopPropogate();" (click)="drawer.close()"  style="overflow-x: hidden !important"
    class="example-container dashbaod mat-drawer-content" autosize>
     
-           <mat-drawer (click)="stopPropogate();" stopPropagation #drawer style="margin-top:1px;width: 23%;border: 1px solid #005d78;
-           background-color:#ffffff;border-radius: 0 13px;" class="example-sidenav" mode="side"
+           <mat-drawer (click)="stopPropogate();" stopPropagation #drawer style="margin-top:1px;border: 1px solid #005d78;
+           background-color:#ffffff;border-radius: 0 13px;" class="example-sidenav mat-drawer-width" mode="side"
             [opened]="IsDrawerState" position="end">
              <div class="mat-drawer-inner-container">
                 <!-- <app-forecast-drawer></app-forecast-drawer> -->
@@ -33,7 +33,7 @@
             </mat-drawer>          
             <div class="example-sidenav-content" stopPropagation (click)="stopPropogate();">
               <button type="button" mat-button (click)="drawer.toggle()">
-               <span class="rotate">Filters</span>
+               <span class="rotate" [ngClass]="{'rotate-mat-drawer-open': drawer.opened}">Filters</span>
               </button>
             </div>
           
